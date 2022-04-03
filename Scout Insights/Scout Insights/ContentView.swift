@@ -14,8 +14,11 @@ struct ContentView: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct ContentView_Previews: PreviewProvider {
+    @available(iOS 15.0, *)
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
