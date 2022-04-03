@@ -10,28 +10,28 @@ import SwiftUI
 
 struct ScoutingSheet {
     // match info
-    let matchNumber: UInt
+    let matchNumber: Int
     let day: DayEnum
     let alliance: AllianceEnum
-    let teamNumber: UInt
+    let teamNumber: Int
 
     // auto
     let taxi: Bool
-    let autoCargoUpperHub: UInt
-    let autoCargoLowerHub: UInt
-    let autoFouls: UInt
-    let autoTechFouls: UInt
+    let autoCargoUpperHub: Int
+    let autoCargoLowerHub: Int
+    let autoFouls: Int
+    let autoTechFouls: Int
 
     // teleop
-    let teleopCargoUpperHub: UInt
-    let teleopCargoLowerHub: UInt
-    let teleopFouls: UInt
-    let teleopTechFouls: UInt
+    let teleopCargoUpperHub: Int
+    let teleopCargoLowerHub: Int
+    let teleopFouls: Int
+    let teleopTechFouls: Int
 
     // endgame
-    let climbTime: UInt // number of seconds
+    let climbTime: Int // number of seconds
     let successful: Bool
-    let tries: UInt
+    let tries: Int
     let partnerOnBar: Bool
 
     // general
@@ -40,22 +40,22 @@ struct ScoutingSheet {
     let defenseQuality: DefenseQualityEnum
     
     public init(
-        matchNumber: UInt,
+        matchNumber: Int,
         day: DayEnum,
         alliance: AllianceEnum,
-        teamNumber: UInt,
+        teamNumber: Int,
         taxi: Bool,
-        autoCargoUpperHub: UInt,
-        autoCargoLowerHub: UInt,
-        autoFouls: UInt,
-        autoTechFouls: UInt,
-        teleopCargoUpperHub: UInt,
-        teleopCargoLowerHub: UInt,
-        teleopFouls: UInt,
-        teleopTechFouls: UInt,
-        climbTime: UInt,
+        autoCargoUpperHub: Int,
+        autoCargoLowerHub: Int,
+        autoFouls: Int,
+        autoTechFouls: Int,
+        teleopCargoUpperHub: Int,
+        teleopCargoLowerHub: Int,
+        teleopFouls: Int,
+        teleopTechFouls: Int,
+        climbTime: Int,
         successful: Bool,
-        tries: UInt,
+        tries: Int,
         partnerOnBar: Bool,
         robotSpeed: RobotSpeedEnum,
         driverSkills: DriverSkillsEnum,
@@ -88,7 +88,7 @@ struct ScoutingSheet {
     }
     
     public init?(JSON: [String: Any]) throws {
-        guard let matchNumber = JSON["matchNumber"] as? UInt else {
+        guard let matchNumber = JSON["matchNumber"] as? Int else {
             throw SerializationError.missing("matchNumber")
         }
 
@@ -98,12 +98,12 @@ struct ScoutingSheet {
         let day = DayEnum(rawValue: dayJson)
                 
         
-        guard let allianceJson = JSON["alliance"] as? UInt else {
+        guard let allianceJson = JSON["alliance"] as? Int else {
             throw SerializationError.invalid("alliance", JSON["alliance"]!)
         }
         let alliance = AllianceEnum(rawValue: allianceJson)
         
-        guard let teamNumber = JSON["teamNumber"] as? UInt else {
+        guard let teamNumber = JSON["teamNumber"] as? Int else {
             throw SerializationError.missing("teamNumber")
         }
         
@@ -111,39 +111,39 @@ struct ScoutingSheet {
             throw SerializationError.missing("taxi")
         }
         
-        guard let autoCargoUpperHub = JSON["autoCargoUpperHub"] as? UInt else {
+        guard let autoCargoUpperHub = JSON["autoCargoUpperHub"] as? Int else {
             throw SerializationError.missing("autoCargoUpperHub")
         }
         
-        guard let autoCargoLowerHub = JSON["autoCargoLowerHub"] as? UInt else {
+        guard let autoCargoLowerHub = JSON["autoCargoLowerHub"] as? Int else {
             throw SerializationError.missing("autoCargoLowerHub")
         }
         
-        guard let autoFouls = JSON["autoFouls"] as? UInt else {
+        guard let autoFouls = JSON["autoFouls"] as? Int else {
             throw SerializationError.missing("autoFouls")
         }
         
-        guard let autoTechFouls = JSON["autoTechFouls"] as? UInt else {
+        guard let autoTechFouls = JSON["autoTechFouls"] as? Int else {
             throw SerializationError.missing("autoTechFouls")
         }
         
-        guard let teleopCargoUpperHub = JSON["teleopCargoUpperHub"] as? UInt else {
+        guard let teleopCargoUpperHub = JSON["teleopCargoUpperHub"] as? Int else {
             throw SerializationError.missing("teleopCargoUpperHub")
         }
         
-        guard let teleopCargoLowerHub = JSON["teleopCargoLowerHub"] as? UInt else {
+        guard let teleopCargoLowerHub = JSON["teleopCargoLowerHub"] as? Int else {
             throw SerializationError.missing("teleopCargoLowerHub")
         }
         
-        guard let teleopFouls = JSON["teleopFouls"] as? UInt else {
+        guard let teleopFouls = JSON["teleopFouls"] as? Int else {
             throw SerializationError.missing("teleopFouls")
         }
         
-        guard let teleopTechFouls = JSON["teleopTechFouls"] as? UInt else {
+        guard let teleopTechFouls = JSON["teleopTechFouls"] as? Int else {
             throw SerializationError.missing("teleopTechFouls")
         }
         
-        guard let climbTime = JSON["climbTime"] as? UInt else {
+        guard let climbTime = JSON["climbTime"] as? Int else {
             throw SerializationError.missing("climbTime")
         }
         
@@ -151,7 +151,7 @@ struct ScoutingSheet {
             throw SerializationError.missing("successful")
         }
         
-        guard let tries = JSON["tries"] as? UInt else {
+        guard let tries = JSON["tries"] as? Int else {
             throw SerializationError.missing("tries")
         }
 

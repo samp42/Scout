@@ -13,8 +13,23 @@ struct ContentView: View {
     @State private var isShowingScanner = false
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            
+        ZStack {
+            VStack {
+                TabView(selection: $selectedTab) {
+                    PageListViewLayout(tab: 1, detailsView: AnyView(RobotDetailsView()))
+                        .tabItem {
+                            Image(systemName: "gear.circle")
+                            Text("Robot")
+                    }
+                    PageListViewLayout(cellView: AnyView(StatisticsListCellView(team: day1Teams[4])), detailsView: AnyView(StatisticsDetailsView()))
+                        .tabItem {
+                            Image(systemName: "chart.line.uptrend.xyaxis")
+                            Text("Statistics")
+                    }
+                    
+                }
+            }
+            ScanButtonView()
         }
     }
     

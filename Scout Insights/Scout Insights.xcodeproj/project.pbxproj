@@ -26,6 +26,10 @@
 		1EDBAE3427F6BBE8006F898F /* Scout_InsightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE3327F6BBE8006F898F /* Scout_InsightsTests.swift */; };
 		1EDBAE3E27F6BBE8006F898F /* Scout_InsightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE3D27F6BBE8006F898F /* Scout_InsightsUITests.swift */; };
 		1EDBAE4027F6BBE8006F898F /* Scout_InsightsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE3F27F6BBE8006F898F /* Scout_InsightsUITestsLaunchTests.swift */; };
+		2050C90727FA427000BA9910 /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050C90627FA427000BA9910 /* StatisticsDetailsView.swift */; };
+		20DCDAB227FA1686008BF343 /* RobotListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDAB127FA1686008BF343 /* RobotListCellView.swift */; };
+		20DCDAB427FA1697008BF343 /* RobotDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDAB327FA1697008BF343 /* RobotDetailsView.swift */; };
+		20DCDAB727FA2FD8008BF343 /* StatisticsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDAB627FA2FD8008BF343 /* StatisticsListCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,11 @@
 		1EDBAE3927F6BBE8006F898F /* Scout InsightsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scout InsightsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EDBAE3D27F6BBE8006F898F /* Scout_InsightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scout_InsightsUITests.swift; sourceTree = "<group>"; };
 		1EDBAE3F27F6BBE8006F898F /* Scout_InsightsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scout_InsightsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2050C90627FA427000BA9910 /* StatisticsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsView.swift; sourceTree = SOURCE_ROOT; };
+		20DCDAB127FA1686008BF343 /* RobotListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotListCellView.swift; sourceTree = SOURCE_ROOT; };
+		20DCDAB327FA1697008BF343 /* RobotDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotDetailsView.swift; sourceTree = SOURCE_ROOT; };
+		20DCDAB527FA1A59008BF343 /* Scout-Insights-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Scout-Insights-Info.plist"; sourceTree = SOURCE_ROOT; };
+		20DCDAB627FA2FD8008BF343 /* StatisticsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsListCellView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +134,8 @@
 		1ED7D71527F96CEC00DC94A4 /* robots */ = {
 			isa = PBXGroup;
 			children = (
+				20DCDAB127FA1686008BF343 /* RobotListCellView.swift */,
+				20DCDAB327FA1697008BF343 /* RobotDetailsView.swift */,
 			);
 			path = robots;
 			sourceTree = "<group>";
@@ -132,6 +143,8 @@
 		1ED7D71627F96CFA00DC94A4 /* statistics */ = {
 			isa = PBXGroup;
 			children = (
+				20DCDAB627FA2FD8008BF343 /* StatisticsListCellView.swift */,
+				2050C90627FA427000BA9910 /* StatisticsDetailsView.swift */,
 			);
 			path = statistics;
 			sourceTree = "<group>";
@@ -166,6 +179,7 @@
 		1EDBAE2127F6BBE6006F898F /* Scout Insights */ = {
 			isa = PBXGroup;
 			children = (
+				20DCDAB527FA1A59008BF343 /* Scout-Insights-Info.plist */,
 				1ED7D70F27F9669B00DC94A4 /* views */,
 				1ED7D70027F95CD600DC94A4 /* models */,
 				1EDBAE2227F6BBE6006F898F /* Scout_InsightsApp.swift */,
@@ -340,14 +354,18 @@
 			files = (
 				1ED7D71127F966AC00DC94A4 /* ScanButtonView.swift in Sources */,
 				1ED7D71927F96D2900DC94A4 /* ScoutingSheet.swift in Sources */,
+				2050C90727FA427000BA9910 /* StatisticsDetailsView.swift in Sources */,
 				1EDBAE2527F6BBE6006F898F /* ContentView.swift in Sources */,
 				1ED7D71D27F9D04E00DC94A4 /* SerializationError.swift in Sources */,
+				20DCDAB227FA1686008BF343 /* RobotListCellView.swift in Sources */,
 				1ED7D70827F95E0700DC94A4 /* CompetingTeams.swift in Sources */,
+				20DCDAB427FA1697008BF343 /* RobotDetailsView.swift in Sources */,
 				1ED7D71B27F9CD0300DC94A4 /* PageListViewLayout.swift in Sources */,
 				1ED7D70627F95D9D00DC94A4 /* DayEnum.swift in Sources */,
 				1ED7D70E27F9662A00DC94A4 /* DefenseQualityEnum.swift in Sources */,
 				1ED7D70A27F9658300DC94A4 /* RobotSpeedEnum.swift in Sources */,
 				1ED7D70C27F965D100DC94A4 /* DriverSkillsEnum.swift in Sources */,
+				20DCDAB727FA2FD8008BF343 /* StatisticsListCellView.swift in Sources */,
 				1EDBAE2327F6BBE6006F898F /* Scout_InsightsApp.swift in Sources */,
 				1ED7D70427F95D0B00DC94A4 /* AllianceEnum.swift in Sources */,
 			);
@@ -509,9 +527,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scout Insights/Preview Content\"";
-				DEVELOPMENT_TEAM = 7Y6U5WA8XQ;
+				DEVELOPMENT_TEAM = K96A35TR3K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Scout-Insights-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"Camera access is required to read QR codes\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -526,7 +545,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SamuelP.Scout-Insights";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DomenicoV.Scout-Insights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -542,9 +561,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scout Insights/Preview Content\"";
-				DEVELOPMENT_TEAM = 7Y6U5WA8XQ;
+				DEVELOPMENT_TEAM = K96A35TR3K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Scout-Insights-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "\"Camera access is required to read QR codes\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -559,7 +579,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.SamuelP.Scout-Insights";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.DomenicoV.Scout-Insights";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

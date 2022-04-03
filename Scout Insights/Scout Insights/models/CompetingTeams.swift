@@ -7,7 +7,7 @@
 
 import Foundation
 
-let day1Teams: [UInt] = [
+let day1Teams = [
     2626,
     3360,
     3533,
@@ -26,7 +26,7 @@ let day1Teams: [UInt] = [
     8224
 ]
 
-let day2Teams: [UInt] = [
+let day2Teams: [Int] = [
     296,
     3379,
     3386,
@@ -45,7 +45,7 @@ let day2Teams: [UInt] = [
     7700
 ]
 
-let day3Teams: [UInt] = [
+let day3Teams: [Int] = [
     296,
     3117,
     3360,

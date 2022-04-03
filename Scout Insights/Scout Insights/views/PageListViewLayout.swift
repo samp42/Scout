@@ -5,6 +5,7 @@
 //  Created by Samuel Proulx on 2022-04-03.
 //
 
+import CodeScanner
 import SwiftUI
 
 /**
@@ -12,14 +13,20 @@ import SwiftUI
  pass a list view with a details view
  */
 struct PageListViewLayout: View {
-//    var (listView, detailsView) = (View, View)
+    let tab: Int
+    var detailsView: AnyView
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct PageListViewLayout_Previews: PreviewProvider {
-    static var previews: some View {
-        PageListViewLayout()
+        NavigationView{
+            List {
+                ForEach(0..<16) {i in
+                    NavigationLink(destination: self.detailsView) {
+                        RobotListCellView(
+                            team: day1Teams[i])
+                        )
+                    }
+                }
+            }.navigationTitle(Text("Teams"))
+        }
     }
 }

@@ -9,16 +9,23 @@ import SwiftUI
 
 struct ScanButtonView: View {
     var body: some View {
-        Button {
-        } label: {
-            Image(systemName: "qrcode.viewfinder")
-                .resizable()
-                .padding(14)
-                .foregroundColor(Color("T4K_Black"))
-                .frame(width: 60, height: 60)
-        }.background(Color("T4K_Yellow"))
-            .cornerRadius(30)
-            .shadow(color: Color.gray, radius: 5, x: 2, y: 2)
+        VStack{
+            Spacer()
+            HStack{
+                Spacer()
+                Button {
+                } label: {
+                    Image(systemName: "qrcode.viewfinder")
+                        .resizable()
+                        .padding(14)
+                        .foregroundColor(Color("T4K_Black"))
+                        .frame(width: 60, height: 60)
+                }.background(Color("T4K_Yellow"))
+                    .cornerRadius(30)
+                    .shadow(color: Color("T4K_Yellow"), radius: 2, x: 2, y: 2)
+                    .padding([.all, .trailing], 60)
+            }
+        }
     }
 }
 
