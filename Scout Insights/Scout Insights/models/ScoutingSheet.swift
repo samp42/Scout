@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct ScoutingSheet: Codable {
+struct ScoutingSheet {
     // match info
     let matchNumber: UInt
     let day: DayEnum
@@ -30,6 +30,8 @@ struct ScoutingSheet: Codable {
 
     // endgame
     let climbTime: UInt // number of seconds
+    let successful: Bool
+    let tries: UInt
     let partnerOnBar: Bool
 
     // general
@@ -52,6 +54,8 @@ struct ScoutingSheet: Codable {
         teleopFouls: UInt,
         teleopTechFouls: UInt,
         climbTime: UInt,
+        successful: Bool,
+        tries: UInt,
         partnerOnBar: Bool,
         robotSpeed: RobotSpeedEnum,
         driverSkills: DriverSkillsEnum,
@@ -74,6 +78,8 @@ struct ScoutingSheet: Codable {
         self.teleopTechFouls = teleopTechFouls
         
         self.climbTime = climbTime
+        self.successful = successful
+        self.tries = tries
         self.partnerOnBar = partnerOnBar
         
         self.robotSpeed = robotSpeed
@@ -89,44 +95,70 @@ struct ScoutingSheet: Codable {
         guard let dayJson = JSON["day"] as? String else {
             throw SerializationError.invalid("day", JSON["day"]!)
         }
-        let day = try DayEnum(rawValue: dayJson)
+        let day = DayEnum(rawValue: dayJson)
                 
         
-        guard let allianceJson = JSON["alliance"] as? String else {
+        guard let allianceJson = JSON["alliance"] as? UInt else {
             throw SerializationError.invalid("alliance", JSON["alliance"]!)
         }
-        let alliance = try AllianceEnum(rawValue: allianceJson)
+        let alliance = AllianceEnum(rawValue: allianceJson)
         
         guard let teamNumber = JSON["teamNumber"] as? UInt else {
-            throw SerializationError.missing(<#T##String#>)
+            throw SerializationError.missing("teamNumber")
         }
         
-        guard let taxi = JSON[
-//        let day = JSON["day"] as? DayEnum,
-//        let alliance = JSON["alliance"] as? AllianceEnum,
-//        let teamNumber = JSON["teamNumber"] as? UInt,
-//        let taxi = JSON["taxi"] as? Bool,
-//        let autoCargoUpperHub = JSON["autoCargoUpperHub"] as? UInt,
-//        let autoCargoLowerHub = JSON["autoCargoLowerHub"] as? UInt,
-//        let autoFouls = JSON["autoFouls"] as? UInt,
-//        let autoTechFouls = JSON["autoTechFouls"] as? UInt,
-//        let teleopCargoUpperHub = JSON["teleopCargoUpperHub"] as? UInt,
-//        let teleopCargoLowerHub = JSON["teleopCargoLowerHub"] as? UInt,
-//        let teleopFouls = JSON["teleopFouls"] as? UInt,
-//        let teleopTechFouls = JSON["teleopTechFouls"] as? UInt,
-//        let climbTime = JSON["climbTime"] as? UInt,
-//        let partnerOnBar = JSON["partnerOnBar"] as? Bool,
-//        let robotSpeed = JSON["robotSpeed"] as? RobotSpeedEnum,
-//        let driverSkills = JSON["driverSkills"] as? DriverSkillsEnum,
-//        let defenseQuality = JSON["defenseQuality"] as? DefenseQualityEnum
+        guard let taxi = JSON["taxi"] as? Bool else {
+            throw SerializationError.missing("taxi")
+        }
+        
+        guard let autoCargoUpperHub = JSON["autoCargoUpperHub"] as? UInt else {
+            throw SerializationError.missing("autoCargoUpperHub")
+        }
+        
+        guard let autoCargoLowerHub = JSON["autoCargoLowerHub"] as? UInt else {
+            throw SerializationError.missing("autoCargoLowerHub")
+        }
+        
+        guard let autoFouls = JSON["autoFouls"] as? UInt else {
+            throw SerializationError.missing("autoFouls")
+        }
+        
+        guard let autoTechFouls = JSON["autoTechFouls"] as? UInt else {
+            throw SerializationError.missing("autoTechFouls")
+        }
+        
+        guard let teleopCargoUpperHub = JSON["teleopCargoUpperHub"] as? UInt else {
+            throw SerializationError.missing("teleopCargoUpperHub")
+        }
+        
+        guard let teleopCargoLowerHub = JSON["teleopCargoLowerHub"] as? UInt else {
+            throw SerializationError.missing("teleopCargoLowerHub")
+        }
+        
+        guard let teleopFouls = JSON["teleopFouls"] as? UInt else {
+            throw SerializationError.missing("teleopFouls")
+        }
+        
+        guard let teleopTechFouls = JSON["teleopTechFouls"] as? UInt else {
+            throw SerializationError.missing("teleopTechFouls")
+        }
+        
+        guard let climbTime = JSON["climbTime"] as? UInt else {
+            throw SerializationError.missing("climbTime")
+        }
+        
+        guard let partnerOnBar = JSON["partnerOnBar"] as? Bool else {
+            throw SerializationError.missing("partnerOnBar")
+        }
+    
                 
-//        self.matchNumber = matchNumber
-//        self.day = day
-//        self.alliance = alliance
-//        self.teamNumber = teamNumber
-//
-//        self.taxi = taxi
-//        self.autoCargoUpperHub = autoCargoUpperHub
+        self.matchNumber = matchNumber
+        self.day = day
+        self.alliance = alliance
+        self.teamNumber = teamNumber
+
+        self.taxi = taxi
+        self.autoCargoUpperHub = autoCargoUpperHub
 //        self.autoCargoLowerHub = autoCargoLowerHub
 //        self.autoFouls = autoFouls
 //        self.autoTechFouls = autoTechFouls
