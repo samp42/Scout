@@ -147,33 +147,58 @@ struct ScoutingSheet {
             throw SerializationError.missing("climbTime")
         }
         
+        guard let successful = JSON["successful"] as? Bool else {
+            throw SerializationError.missing("successful")
+        }
+        
+        guard let tries = JSON["tries"] as? UInt else {
+            throw SerializationError.missing("tries")
+        }
+
         guard let partnerOnBar = JSON["partnerOnBar"] as? Bool else {
             throw SerializationError.missing("partnerOnBar")
         }
+        
+        guard let robotSpeedJson = JSON["robotSpeed"] as? String else {
+            throw SerializationError.invalid("robotSpeed", JSON["robotSpeed"]!)
+        }
+        let robotSpeed = RobotSpeedEnum(rawValue: robotSpeedJson)
+        
+        guard let driverSkillsJson = JSON["driverSkills"] as? String else {
+            throw SerializationError.invalid("driverSkills", JSON["driverSkills"]!)
+        }
+        let driverSkills = DriverSkillsEnum(rawValue: driverSkillsJson)
+        
+        guard let defenseQualityJson = JSON["defenseQuality"] as? String else {
+            throw SerializationError.invalid("defenseQuality", JSON["defenseQuality"]!)
+        }
+        let defenseQuality = DefenseQualityEnum(rawValue: defenseQualityJson)
     
                 
         self.matchNumber = matchNumber
-        self.day = day
-        self.alliance = alliance
+        self.day = day!
+        self.alliance = alliance!
         self.teamNumber = teamNumber
 
         self.taxi = taxi
         self.autoCargoUpperHub = autoCargoUpperHub
-//        self.autoCargoLowerHub = autoCargoLowerHub
-//        self.autoFouls = autoFouls
-//        self.autoTechFouls = autoTechFouls
-//
-//        self.teleopCargoUpperHub = teleopCargoUpperHub
-//        self.teleopCargoLowerHub = teleopCargoLowerHub
-//        self.teleopFouls = teleopFouls
-//        self.teleopTechFouls = teleopTechFouls
-//
-//        self.climbTime = climbTime
-//        self.partnerOnBar = partnerOnBar
-//
-//        self.robotSpeed = robotSpeed
-//        self.driverSkills = driverSkills
-//        self.defenseQuality = defenseQuality
+        self.autoCargoLowerHub = autoCargoLowerHub
+        self.autoFouls = autoFouls
+        self.autoTechFouls = autoTechFouls
+
+        self.teleopCargoUpperHub = teleopCargoUpperHub
+        self.teleopCargoLowerHub = teleopCargoLowerHub
+        self.teleopFouls = teleopFouls
+        self.teleopTechFouls = teleopTechFouls
+
+        self.climbTime = climbTime
+        self.successful = successful
+        self.tries = tries
+        self.partnerOnBar = partnerOnBar
+
+        self.robotSpeed = robotSpeed!
+        self.driverSkills = driverSkills!
+        self.defenseQuality = defenseQuality!
     }
     
     public static func makeJsonMock() -> [String: Any] {
