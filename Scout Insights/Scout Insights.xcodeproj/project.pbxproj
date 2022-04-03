@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ED7D70427F95D0B00DC94A4 /* AllianceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70327F95D0B00DC94A4 /* AllianceEnum.swift */; };
+		1ED7D70627F95D9D00DC94A4 /* DayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70527F95D9D00DC94A4 /* DayEnum.swift */; };
+		1ED7D70827F95E0700DC94A4 /* CompetingTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70727F95E0700DC94A4 /* CompetingTeams.swift */; };
+		1ED7D70A27F9658300DC94A4 /* RobotSpeedEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70927F9658300DC94A4 /* RobotSpeedEnum.swift */; };
+		1ED7D70C27F965D100DC94A4 /* DriverSkillsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70B27F965D100DC94A4 /* DriverSkillsEnum.swift */; };
+		1ED7D70E27F9662A00DC94A4 /* DefenseQualityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70D27F9662A00DC94A4 /* DefenseQualityEnum.swift */; };
+		1ED7D71127F966AC00DC94A4 /* ScanButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D71027F966AC00DC94A4 /* ScanButtonView.swift */; };
+		1ED7D71427F9681E00DC94A4 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 1ED7D71327F9681E00DC94A4 /* CodeScanner */; };
+		1ED7D71927F96D2900DC94A4 /* ScoutingSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D71827F96D2900DC94A4 /* ScoutingSheet.swift */; };
+		1ED7D71B27F9CD0300DC94A4 /* PageListViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D71A27F9CD0300DC94A4 /* PageListViewLayout.swift */; };
+		1ED7D71D27F9D04E00DC94A4 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D71C27F9D04E00DC94A4 /* SerializationError.swift */; };
+		1ED7D71F27F9D47A00DC94A4 /* ScoutingSheetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D71E27F9D47A00DC94A4 /* ScoutingSheetTest.swift */; };
 		1EDBAE2327F6BBE6006F898F /* Scout_InsightsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE2227F6BBE6006F898F /* Scout_InsightsApp.swift */; };
 		1EDBAE2527F6BBE6006F898F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE2427F6BBE6006F898F /* ContentView.swift */; };
 		1EDBAE2727F6BBE7006F898F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EDBAE2627F6BBE7006F898F /* Assets.xcassets */; };
@@ -34,6 +46,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1ED7D70327F95D0B00DC94A4 /* AllianceEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllianceEnum.swift; sourceTree = "<group>"; };
+		1ED7D70527F95D9D00DC94A4 /* DayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEnum.swift; sourceTree = "<group>"; };
+		1ED7D70727F95E0700DC94A4 /* CompetingTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetingTeams.swift; sourceTree = "<group>"; };
+		1ED7D70927F9658300DC94A4 /* RobotSpeedEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotSpeedEnum.swift; sourceTree = "<group>"; };
+		1ED7D70B27F965D100DC94A4 /* DriverSkillsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverSkillsEnum.swift; sourceTree = "<group>"; };
+		1ED7D70D27F9662A00DC94A4 /* DefenseQualityEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefenseQualityEnum.swift; sourceTree = "<group>"; };
+		1ED7D71027F966AC00DC94A4 /* ScanButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanButtonView.swift; sourceTree = "<group>"; };
+		1ED7D71827F96D2900DC94A4 /* ScoutingSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutingSheet.swift; sourceTree = "<group>"; };
+		1ED7D71A27F9CD0300DC94A4 /* PageListViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageListViewLayout.swift; sourceTree = "<group>"; };
+		1ED7D71C27F9D04E00DC94A4 /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
+		1ED7D71E27F9D47A00DC94A4 /* ScoutingSheetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutingSheetTest.swift; sourceTree = "<group>"; };
 		1EDBAE1F27F6BBE6006F898F /* Scout Insights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scout Insights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EDBAE2227F6BBE6006F898F /* Scout_InsightsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scout_InsightsApp.swift; sourceTree = "<group>"; };
 		1EDBAE2427F6BBE6006F898F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED7D71427F9681E00DC94A4 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +95,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1ED7D70027F95CD600DC94A4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				1ED7D70327F95D0B00DC94A4 /* AllianceEnum.swift */,
+				1ED7D70527F95D9D00DC94A4 /* DayEnum.swift */,
+				1ED7D70727F95E0700DC94A4 /* CompetingTeams.swift */,
+				1ED7D70927F9658300DC94A4 /* RobotSpeedEnum.swift */,
+				1ED7D70B27F965D100DC94A4 /* DriverSkillsEnum.swift */,
+				1ED7D70D27F9662A00DC94A4 /* DefenseQualityEnum.swift */,
+				1ED7D71827F96D2900DC94A4 /* ScoutingSheet.swift */,
+				1ED7D71C27F9D04E00DC94A4 /* SerializationError.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		1ED7D70F27F9669B00DC94A4 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				1ED7D71727F96D0F00DC94A4 /* sheets */,
+				1ED7D71627F96CFA00DC94A4 /* statistics */,
+				1ED7D71527F96CEC00DC94A4 /* robots */,
+				1ED7D71027F966AC00DC94A4 /* ScanButtonView.swift */,
+				1ED7D71A27F9CD0300DC94A4 /* PageListViewLayout.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		1ED7D71527F96CEC00DC94A4 /* robots */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = robots;
+			sourceTree = "<group>";
+		};
+		1ED7D71627F96CFA00DC94A4 /* statistics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = statistics;
+			sourceTree = "<group>";
+		};
+		1ED7D71727F96D0F00DC94A4 /* sheets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = sheets;
+			sourceTree = "<group>";
+		};
 		1EDBAE1627F6BBE6006F898F = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +166,8 @@
 		1EDBAE2127F6BBE6006F898F /* Scout Insights */ = {
 			isa = PBXGroup;
 			children = (
+				1ED7D70F27F9669B00DC94A4 /* views */,
+				1ED7D70027F95CD600DC94A4 /* models */,
 				1EDBAE2227F6BBE6006F898F /* Scout_InsightsApp.swift */,
 				1EDBAE2427F6BBE6006F898F /* ContentView.swift */,
 				1EDBAE2627F6BBE7006F898F /* Assets.xcassets */,
@@ -114,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				1EDBAE3327F6BBE8006F898F /* Scout_InsightsTests.swift */,
+				1ED7D71E27F9D47A00DC94A4 /* ScoutingSheetTest.swift */,
 			);
 			path = "Scout InsightsTests";
 			sourceTree = "<group>";
@@ -143,6 +218,9 @@
 			dependencies = (
 			);
 			name = "Scout Insights";
+			packageProductDependencies = (
+				1ED7D71327F9681E00DC94A4 /* CodeScanner */,
+			);
 			productName = "Scout Insights";
 			productReference = 1EDBAE1F27F6BBE6006F898F /* Scout Insights.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +293,9 @@
 				Base,
 			);
 			mainGroup = 1EDBAE1627F6BBE6006F898F;
+			packageReferences = (
+				1ED7D71227F9681E00DC94A4 /* XCRemoteSwiftPackageReference "codescanner" */,
+			);
 			productRefGroup = 1EDBAE2027F6BBE6006F898F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +338,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED7D71127F966AC00DC94A4 /* ScanButtonView.swift in Sources */,
+				1ED7D71927F96D2900DC94A4 /* ScoutingSheet.swift in Sources */,
 				1EDBAE2527F6BBE6006F898F /* ContentView.swift in Sources */,
+				1ED7D71D27F9D04E00DC94A4 /* SerializationError.swift in Sources */,
+				1ED7D70827F95E0700DC94A4 /* CompetingTeams.swift in Sources */,
+				1ED7D71B27F9CD0300DC94A4 /* PageListViewLayout.swift in Sources */,
+				1ED7D70627F95D9D00DC94A4 /* DayEnum.swift in Sources */,
+				1ED7D70E27F9662A00DC94A4 /* DefenseQualityEnum.swift in Sources */,
+				1ED7D70A27F9658300DC94A4 /* RobotSpeedEnum.swift in Sources */,
+				1ED7D70C27F965D100DC94A4 /* DriverSkillsEnum.swift in Sources */,
 				1EDBAE2327F6BBE6006F898F /* Scout_InsightsApp.swift in Sources */,
+				1ED7D70427F95D0B00DC94A4 /* AllianceEnum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EDBAE3427F6BBE8006F898F /* Scout_InsightsTests.swift in Sources */,
+				1ED7D71F27F9D47A00DC94A4 /* ScoutingSheetTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +512,7 @@
 				DEVELOPMENT_TEAM = 7Y6U5WA8XQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Camera access is required to read QR codes\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,6 +545,7 @@
 				DEVELOPMENT_TEAM = 7Y6U5WA8XQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "\"Camera access is required to read QR codes\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -589,6 +683,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1ED7D71227F9681E00DC94A4 /* XCRemoteSwiftPackageReference "codescanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/codescanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1ED7D71327F9681E00DC94A4 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1ED7D71227F9681E00DC94A4 /* XCRemoteSwiftPackageReference "codescanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1EDBAE1727F6BBE6006F898F /* Project object */;
 }

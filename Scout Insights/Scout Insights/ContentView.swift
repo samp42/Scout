@@ -5,12 +5,23 @@
 //  Created by Samuel Proulx on 2022-04-01.
 //
 
+import CodeScanner
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedTab = 0
+    @State private var isShowingScanner = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView(selection: $selectedTab) {
+            
+        }
+    }
+    
+    func handleScan(result: Result<ScanResult, ScanError>) {
+        isShowingScanner = false
+        
+        
     }
 }
 
