@@ -27,6 +27,7 @@
 		1EDBAE3E27F6BBE8006F898F /* Scout_InsightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE3D27F6BBE8006F898F /* Scout_InsightsUITests.swift */; };
 		1EDBAE4027F6BBE8006F898F /* Scout_InsightsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE3F27F6BBE8006F898F /* Scout_InsightsUITestsLaunchTests.swift */; };
 		2050C90727FA427000BA9910 /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2050C90627FA427000BA9910 /* StatisticsDetailsView.swift */; };
+		2052F7AA27FB1E0F001A2EFF /* DayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2052F7A927FB1E0F001A2EFF /* DayButtonView.swift */; };
 		20DCDAB227FA1686008BF343 /* RobotListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDAB127FA1686008BF343 /* RobotListCellView.swift */; };
 		20DCDAB427FA1697008BF343 /* RobotDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDAB327FA1697008BF343 /* RobotDetailsView.swift */; };
 		20DCDAB727FA2FD8008BF343 /* StatisticsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DCDAB627FA2FD8008BF343 /* StatisticsListCellView.swift */; };
@@ -72,6 +73,7 @@
 		1EDBAE3D27F6BBE8006F898F /* Scout_InsightsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scout_InsightsUITests.swift; sourceTree = "<group>"; };
 		1EDBAE3F27F6BBE8006F898F /* Scout_InsightsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scout_InsightsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2050C90627FA427000BA9910 /* StatisticsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsView.swift; sourceTree = SOURCE_ROOT; };
+		2052F7A927FB1E0F001A2EFF /* DayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonView.swift; sourceTree = "<group>"; };
 		20DCDAB127FA1686008BF343 /* RobotListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotListCellView.swift; sourceTree = SOURCE_ROOT; };
 		20DCDAB327FA1697008BF343 /* RobotDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotDetailsView.swift; sourceTree = SOURCE_ROOT; };
 		20DCDAB527FA1A59008BF343 /* Scout-Insights-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Scout-Insights-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -127,6 +129,7 @@
 				1ED7D71527F96CEC00DC94A4 /* robots */,
 				1ED7D71027F966AC00DC94A4 /* ScanButtonView.swift */,
 				1ED7D71A27F9CD0300DC94A4 /* PageListViewLayout.swift */,
+				2052F7A927FB1E0F001A2EFF /* DayButtonView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				1ED7D70627F95D9D00DC94A4 /* DayEnum.swift in Sources */,
 				1ED7D70E27F9662A00DC94A4 /* DefenseQualityEnum.swift in Sources */,
 				1ED7D70A27F9658300DC94A4 /* RobotSpeedEnum.swift in Sources */,
+				2052F7AA27FB1E0F001A2EFF /* DayButtonView.swift in Sources */,
 				1ED7D70C27F965D100DC94A4 /* DriverSkillsEnum.swift in Sources */,
 				20DCDAB727FA2FD8008BF343 /* StatisticsListCellView.swift in Sources */,
 				1EDBAE2327F6BBE6006F898F /* Scout_InsightsApp.swift in Sources */,

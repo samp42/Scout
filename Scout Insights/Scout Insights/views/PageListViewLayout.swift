@@ -15,18 +15,22 @@ import SwiftUI
 struct PageListViewLayout: View {
     let tab: Int
     var detailsView: AnyView
+    var title: String
     
     var body: some View {
         NavigationView{
             List {
                 ForEach(0..<16) {i in
                     NavigationLink(destination: self.detailsView) {
-                        RobotListCellView(
-                            team: day1Teams[i])
-                        )
+                        if (tab == 1) {
+                            RobotListCellView(team: day1Teams[i])
+                        }
+                        if (tab == 2) {
+                            StatisticsListCellView(team: day1Teams[i])
+                        }
                     }
                 }
-            }.navigationTitle(Text("Teams"))
+            }.navigationTitle(Text(title))
         }
     }
 }
