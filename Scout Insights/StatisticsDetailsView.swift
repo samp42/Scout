@@ -9,10 +9,10 @@ import SwiftUI
 
 struct StatisticsDetailsView: View {
     var body: some View {
-        var scoutingSheet = ScoutingSheet(JSON: "JSON")
+        //var scoutingSheet = ScoutingSheet(JSON: "JSON")
         HStack{
             VStack{
-                Text("Match Number \(String("a"))
+                Text("Match Number")
             }
         }
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RobotDetailsView: View {
+    let team: Int
     var body: some View {
         Text("RobotDetailsView")
     }
@@ -15,6 +16,6 @@ struct RobotDetailsView: View {
 
 struct RobotDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        RobotDetailsView()
+        RobotDetailsView(team : 1)
     }
 }

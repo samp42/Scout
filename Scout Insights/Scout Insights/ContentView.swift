@@ -16,12 +16,12 @@ struct ContentView: View {
         ZStack {
             VStack {
                 TabView(selection: $selectedTab) {
-                    PageListViewLayout(tab: 1, detailsView: AnyView(RobotDetailsView()))
+                    PageListViewLayout(tab: 1, detailsView: AnyView(RobotDetailsView()), title: "Robots")
                         .tabItem {
                             Image(systemName: "gear.circle")
                             Text("Robot")
                     }
-                    PageListViewLayout(cellView: AnyView(StatisticsListCellView(team: day1Teams[4])), detailsView: AnyView(StatisticsDetailsView()))
+                    PageListViewLayout(tab: 2, detailsView: AnyView(StatisticsDetailsView()), title: "Statistics")
                         .tabItem {
                             Image(systemName: "chart.line.uptrend.xyaxis")
                             Text("Statistics")
@@ -30,6 +30,7 @@ struct ContentView: View {
                 }
             }
             ScanButtonView()
+            DayButtonView()
         }
     }
     
