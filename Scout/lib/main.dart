@@ -48,7 +48,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  ScoutingSheet _scoutingSheet = ScoutingSheet();
+  final ScoutingSheet _scoutingSheet = ScoutingSheet();
 
   String _day = DayEnum.day1;
 
@@ -56,13 +56,10 @@ class _MyHomePageState extends State<MyHomePage> {
   String _driverSkills = DriverSkillsEnums.bad;
   String _defense = DefenseQualityEnum.na;
 
-  void _incrementCounter() {
+  void _generateQRCode() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
+      _scoutingSheet.day = _day;
+      // _scoutingSheet.matchNumber
     });
   }
 
@@ -74,11 +71,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.all(20),
+          margin: const EdgeInsets.all(20),
           child: Column(
             children: [
               // MATCH INFO
-              MatchInfoWidget(),
+              const MatchInfoWidget(),
               // AUTONOMOUS
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
@@ -99,24 +96,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text("Teleop", style: TextStyle(fontSize: 32)),
                 ),
               ),
-              Counter("Teleop Cargo Upper Hub"),
-              Counter("Teleop Cargo Lower Hub"),
-              Counter("Teleop Fouls"),
+              const Counter("Teleop Cargo Upper Hub"),
+              const Counter("Teleop Cargo Lower Hub"),
+              const Counter("Teleop Fouls"),
               // ENDGAME
               Container(
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Align(
+                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: const Align(
                   alignment: Alignment.topLeft,
                   child: Text("Endgame", style: TextStyle(fontSize: 32)),
                 ),
               ),
-              TimerButton("Climb Time"),
-              CheckButton("Successful"),
-              CheckButton("Partner on Bar"),
+              const TimerButton("Climb Time"),
+              const CheckButton("Successful"),
+              const CheckButton("Partner on Bar"),
               // GENERAL
               Container(
-                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: Align(
+                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: const Align(
                   alignment: Alignment.topLeft,
                   child: Text("General", style: TextStyle(fontSize: 32)),
                 ),
@@ -124,8 +121,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Robot Speed"),
-                  Container(
+                  const Text("Robot Speed"),
+                  SizedBox(
                     width: 200,
                     child: DropdownButton<String>(
                       value: _robotSpeed,
@@ -155,8 +152,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Driver Skills"),
-                  Container(
+                  const Text("Driver Skills"),
+                  SizedBox(
                     width: 200,
                     child: DropdownButton<String>(
                       value: _driverSkills,
@@ -186,8 +183,8 @@ class _MyHomePageState extends State<MyHomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Defense Quality"),
-                  Container(
+                  const Text("Defense Quality"),
+                  SizedBox(
                     width: 200,
                     child: DropdownButton<String>(
                       value: _defense,
@@ -215,16 +212,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               Container(
-                  margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                   child: ElevatedButton(
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsets>(
-                        EdgeInsets.fromLTRB(10, 15, 10, 15),
+                        const EdgeInsets.fromLTRB(10, 15, 10, 15),
                       ),
                     ),
-                    onPressed: _incrementCounter,
+                    onPressed: _generateQRCode,
                     child: Row(
-                      children: [Icon(Icons.qr_code), Text("Generate QR Code")],
+                      children: const [Icon(Icons.qr_code), Text("Generate QR Code")],
                     ),
                   ),
               )
