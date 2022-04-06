@@ -20,13 +20,11 @@ struct ScoutingSheet {
     let autoCargoUpperHub: Int
     let autoCargoLowerHub: Int
     let autoFouls: Int
-    let autoTechFouls: Int
 
     // teleop
     let teleopCargoUpperHub: Int
     let teleopCargoLowerHub: Int
     let teleopFouls: Int
-    let teleopTechFouls: Int
 
     // endgame
     let climbTime: Int // number of seconds
@@ -48,11 +46,9 @@ struct ScoutingSheet {
         autoCargoUpperHub: Int,
         autoCargoLowerHub: Int,
         autoFouls: Int,
-        autoTechFouls: Int,
         teleopCargoUpperHub: Int,
         teleopCargoLowerHub: Int,
         teleopFouls: Int,
-        teleopTechFouls: Int,
         climbTime: Int,
         successful: Bool,
         tries: Int,
@@ -70,12 +66,10 @@ struct ScoutingSheet {
         self.autoCargoUpperHub = autoCargoUpperHub
         self.autoCargoLowerHub = autoCargoLowerHub
         self.autoFouls = autoFouls
-        self.autoTechFouls = autoTechFouls
         
         self.teleopCargoUpperHub = teleopCargoUpperHub
         self.teleopCargoLowerHub = teleopCargoLowerHub
         self.teleopFouls = teleopFouls
-        self.teleopTechFouls = teleopTechFouls
         
         self.climbTime = climbTime
         self.successful = successful
@@ -123,10 +117,6 @@ struct ScoutingSheet {
             throw SerializationError.missing("autoFouls")
         }
         
-        guard let autoTechFouls = JSON["autoTechFouls"] as? Int else {
-            throw SerializationError.missing("autoTechFouls")
-        }
-        
         guard let teleopCargoUpperHub = JSON["teleopCargoUpperHub"] as? Int else {
             throw SerializationError.missing("teleopCargoUpperHub")
         }
@@ -137,10 +127,6 @@ struct ScoutingSheet {
         
         guard let teleopFouls = JSON["teleopFouls"] as? Int else {
             throw SerializationError.missing("teleopFouls")
-        }
-        
-        guard let teleopTechFouls = JSON["teleopTechFouls"] as? Int else {
-            throw SerializationError.missing("teleopTechFouls")
         }
         
         guard let climbTime = JSON["climbTime"] as? Int else {
@@ -184,12 +170,10 @@ struct ScoutingSheet {
         self.autoCargoUpperHub = autoCargoUpperHub
         self.autoCargoLowerHub = autoCargoLowerHub
         self.autoFouls = autoFouls
-        self.autoTechFouls = autoTechFouls
 
         self.teleopCargoUpperHub = teleopCargoUpperHub
         self.teleopCargoLowerHub = teleopCargoLowerHub
         self.teleopFouls = teleopFouls
-        self.teleopTechFouls = teleopTechFouls
 
         self.climbTime = climbTime
         self.successful = successful
@@ -206,16 +190,14 @@ struct ScoutingSheet {
             "matchNumber": 4,
             "day": "Day 1",
             "alliance": 0,
-            "teamNumber": competingTeams["Day 1"]![10],
+            "teamNumber": competingTeams[10],
             "taxi": true,
             "autoCargoUpperHub": 3,
             "autoCargoLowerHub": 2,
             "autoFouls": 2,
-            "autoTechFouls": 0,
             "teleopCargoUpperHub": 10,
             "teleopCargoLowerHub": 2,
             "teleopFouls": 2,
-            "teleopTechFouls": 3,
             "climbTime": 29,
             "partnerOnBar": false,
             "robotSpeed": "Fast",

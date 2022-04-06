@@ -13,6 +13,8 @@ import SwiftUI
  pass a list view with a details view
  */
 struct PageListViewLayout: View {
+    @EnvironmentObject var dayTeams: DayTeams
+    
     let tab: Int
     var detailsView: AnyView
     var title: String
@@ -22,11 +24,25 @@ struct PageListViewLayout: View {
             List {
                 ForEach(0..<16) {i in
                     NavigationLink(destination: self.detailsView) {
-                        if (tab == 1) {
-                            RobotListCellView(team: day1Teams[i])
-                        }
-                        if (tab == 2) {
-                            StatisticsListCellView(team: day1Teams[i])
+                        switch(tab) {
+                        case 1:
+                            switch(dayTeams.dayTeams) {
+                            case day1Teams:
+                                RobotListCellView(team: day1Teams[i])
+                            case day2Teams:
+                                RobotListCellView(team: day2Teams[i])
+                            default:
+                                RobotListCellView(team: day3Teams[i])
+                            }
+                        default:
+                            switch(dayTeams.dayTeams) {
+                            case day1Teams:
+                                StatisticsListCellView(team: day1Teams[i])
+                            case day2Teams:
+                                StatisticsListCellView(team: day2Teams[i])
+                            default:
+                                StatisticsListCellView(team: day3Teams[i])
+                            }
                         }
                     }
                 }

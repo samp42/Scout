@@ -65,4 +65,4 @@ let day3Teams: [Int] = [
     8067
 ]
 
-let competingTeams = ["Day 1": day1Teams, "Day 2": day2Teams, "Day 3": day3Teams]
+let competingTeams = [day1Teams, day2Teams, day3Teams]

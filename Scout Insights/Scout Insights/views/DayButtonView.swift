@@ -8,30 +8,31 @@
 import SwiftUI
 
 struct DayButtonView: View {
-    @State var dayChosen: Int
+    @EnvironmentObject var dayTeams: DayTeams 
+    
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 // Other views
-                Text("\(dayChosen)th of April ")
+                switch(dayTeams.dayTeams) {
+                case day1Teams:
+                    Text("\(DAY_1)th of April")
+                case day2Teams:
+                    Text("\(DAY_2)th of April")
+                default:
+                    Text("\(DAY_3)th of April")
+                }
+                    
 
                 // Button, that when tapped shows 3 options
                 Menu {
-                    Button(action: {
-                        dayChosen = Int(DAY_1)
-                    }) {
-                        Label("April 7", systemImage: "calendar.circle")
-                    }
-                    Button(action: {
-                        dayChosen = Int(DAY_2)
-                    }) {
-                        Label("April 8", systemImage: "calendar.circle")
-                    }
-                    Button(action: {
-                        dayChosen = Int(DAY_3)
-                    }) {
-                        Label("April 9", systemImage: "calendar.circle")
+                    ForEach(0..<3) {i in
+                        Button(action: {
+                            dayTeams.dayTeams = competingTeams[i]
+                        }) {
+                            Label("April \(7+i)", systemImage: "calendar.circle")
+                        }
                     }
                 } label: {
                     Image(systemName: "ellipsis.circle")
@@ -45,9 +46,11 @@ struct DayButtonView: View {
 
 @available(iOS 15.0, *)
 struct DayButtonView_Preview: PreviewProvider {
+    static let dayTeams = DayTeams()
+    
     @available(iOS 15.0, *)
     static var previews: some View {
-        DayButtonView(dayChosen: Int(DAY_1))
+        DayButtonView().environmentObject(DayTeams())
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

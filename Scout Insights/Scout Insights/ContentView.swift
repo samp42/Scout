@@ -8,7 +8,12 @@
 import CodeScanner
 import SwiftUI
 
+class DayTeams: ObservableObject {
+    @Published var dayTeams = day1Teams
+}
+
 struct ContentView: View {
+    @EnvironmentObject var dayTeams: DayTeams
     @State private var selectedTab = 0
     @State private var isShowingScanner = false
     
@@ -17,11 +22,13 @@ struct ContentView: View {
             VStack {
                 TabView(selection: $selectedTab) {
                     PageListViewLayout(tab: 1, detailsView: AnyView(RobotDetailsView(team: 3990)), title: "Robots")
+                        .environmentObject(DayTeams())
                         .tabItem {
                             Image(systemName: "gear.circle")
                             Text("Robot")
                     }
                     PageListViewLayout(tab: 2, detailsView: AnyView(StatisticsDetailsView()), title: "Statistics")
+                        .environmentObject(DayTeams())
                         .tabItem {
                             Image(systemName: "chart.line.uptrend.xyaxis")
                             Text("Statistics")
@@ -30,7 +37,7 @@ struct ContentView: View {
                 }
             }
             ScanButtonView()
-            DayButtonView(dayChosen: Int(DAY_1))
+            DayButtonView().environmentObject(DayTeams())
         }
     }
     
@@ -44,8 +51,10 @@ struct ContentView: View {
 @available(iOS 15.0, *)
 struct ContentView_Previews: PreviewProvider {
     @available(iOS 15.0, *)
+    static let dayTeams = DayTeams()
     static var previews: some View {
         ContentView()
+            .environmentObject(dayTeams)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
