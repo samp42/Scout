@@ -32,6 +32,7 @@
 		20372A9F27FE07A000F0DF45 /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A9B27FE07A000F0DF45 /* StatisticsDetailsView.swift */; };
 		20372AA227FE088500F0DF45 /* SheetsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372AA127FE088500F0DF45 /* SheetsDetailsView.swift */; };
 		20372AA427FE089100F0DF45 /* SheetsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372AA327FE089100F0DF45 /* SheetsListCellView.swift */; };
+		20372AAB27FE26B600F0DF45 /* ScoutingSheetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372AAA27FE26B600F0DF45 /* ScoutingSheetInfoView.swift */; };
 		2052F7AA27FB1E0F001A2EFF /* DayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2052F7A927FB1E0F001A2EFF /* DayButtonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		20372A9B27FE07A000F0DF45 /* StatisticsDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsView.swift; sourceTree = "<group>"; };
 		20372AA127FE088500F0DF45 /* SheetsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsDetailsView.swift; sourceTree = "<group>"; };
 		20372AA327FE089100F0DF45 /* SheetsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsListCellView.swift; sourceTree = "<group>"; };
+		20372AAA27FE26B600F0DF45 /* ScoutingSheetInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutingSheetInfoView.swift; sourceTree = "<group>"; };
 		2052F7A927FB1E0F001A2EFF /* DayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonView.swift; sourceTree = "<group>"; };
 		20DCDAB527FA1A59008BF343 /* Scout-Insights-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Scout-Insights-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -221,6 +223,7 @@
 			children = (
 				20372AA127FE088500F0DF45 /* SheetsDetailsView.swift */,
 				20372AA327FE089100F0DF45 /* SheetsListCellView.swift */,
+				20372AAA27FE26B600F0DF45 /* ScoutingSheetInfoView.swift */,
 			);
 			path = sheets;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				20372A9D27FE07A000F0DF45 /* RobotListCellView.swift in Sources */,
 				1EDBAE2327F6BBE6006F898F /* Scout_InsightsApp.swift in Sources */,
 				1ED7D70427F95D0B00DC94A4 /* AllianceEnum.swift in Sources */,
+				20372AAB27FE26B600F0DF45 /* ScoutingSheetInfoView.swift in Sources */,
 				20372AA227FE088500F0DF45 /* SheetsDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
