@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               // MATCH INFO
-              const MatchInfoWidget(),
+              // const MatchInfoWidget(),
               // AUTONOMOUS
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
