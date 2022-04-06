@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E849C7527FE2F45008C46B8 /* Sheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E849C7427FE2F45008C46B8 /* Sheets.swift */; };
 		1ED7D70427F95D0B00DC94A4 /* AllianceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70327F95D0B00DC94A4 /* AllianceEnum.swift */; };
 		1ED7D70627F95D9D00DC94A4 /* DayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70527F95D9D00DC94A4 /* DayEnum.swift */; };
 		1ED7D70827F95E0700DC94A4 /* CompetingTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70727F95E0700DC94A4 /* CompetingTeams.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E849C7427FE2F45008C46B8 /* Sheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheets.swift; sourceTree = "<group>"; };
 		1ED7D70327F95D0B00DC94A4 /* AllianceEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllianceEnum.swift; sourceTree = "<group>"; };
 		1ED7D70527F95D9D00DC94A4 /* DayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEnum.swift; sourceTree = "<group>"; };
 		1ED7D70727F95E0700DC94A4 /* CompetingTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetingTeams.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				1ED7D70D27F9662A00DC94A4 /* DefenseQualityEnum.swift */,
 				1ED7D71827F96D2900DC94A4 /* ScoutingSheet.swift */,
 				1ED7D71C27F9D04E00DC94A4 /* SerializationError.swift */,
+				1E849C7427FE2F45008C46B8 /* Sheets.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				1ED7D71D27F9D04E00DC94A4 /* SerializationError.swift in Sources */,
 				1ED7D70827F95E0700DC94A4 /* CompetingTeams.swift in Sources */,
 				1ED7D71B27F9CD0300DC94A4 /* PageListViewLayout.swift in Sources */,
+				1E849C7527FE2F45008C46B8 /* Sheets.swift in Sources */,
 				20372A9C27FE07A000F0DF45 /* RobotDetailsView.swift in Sources */,
 				1ED7D70627F95D9D00DC94A4 /* DayEnum.swift in Sources */,
 				1ED7D70E27F9662A00DC94A4 /* DefenseQualityEnum.swift in Sources */,

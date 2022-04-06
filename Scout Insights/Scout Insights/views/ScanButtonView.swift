@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ScanButtonView: View {
+    @ObservedObject var scanningData: ScanningData
+    
     var body: some View {
         VStack{
             Spacer()
             HStack{
                 Spacer()
                 Button {
+                    scanningData.showScanner = true
                 } label: {
                     Image(systemName: "qrcode.viewfinder")
                         .resizable()
@@ -33,7 +36,7 @@ struct ScanButtonView: View {
 struct ScanButtonView_Previews: PreviewProvider {
     @available(iOS 15.0, *)
     static var previews: some View {
-        ScanButtonView()
+        ScanButtonView(scanningData: ScanningData())
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

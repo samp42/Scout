@@ -12,7 +12,13 @@ class DayTeams: ObservableObject {
     @Published var dayTeams = day1Teams
 }
 
+class ScanningData: ObservableObject{
+    @Published var showScanner: Bool = false
+    @Published var sheet: ScoutingSheet? = nil
+}
+
 struct ContentView: View {
+    @StateObject var scanningData = ScanningData()
     @EnvironmentObject var dayTeams: DayTeams
     @State private var selectedTab = 0
     @State private var isShowingScanner = false
@@ -36,7 +42,7 @@ struct ContentView: View {
                     
                 }
             }
-            ScanButtonView()
+            ScanButtonView(scanningData: scanningData)
             DayButtonView().environmentObject(DayTeams())
         }
     }
