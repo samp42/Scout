@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E849C7527FE2F45008C46B8 /* Sheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E849C7427FE2F45008C46B8 /* Sheets.swift */; };
+		1E07E57227FE388E00952E1D /* ProspectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E07E57127FE388E00952E1D /* ProspectView.swift */; };
 		1ED7D70427F95D0B00DC94A4 /* AllianceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70327F95D0B00DC94A4 /* AllianceEnum.swift */; };
 		1ED7D70627F95D9D00DC94A4 /* DayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70527F95D9D00DC94A4 /* DayEnum.swift */; };
 		1ED7D70827F95E0700DC94A4 /* CompetingTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70727F95E0700DC94A4 /* CompetingTeams.swift */; };
@@ -55,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E07E57127FE388E00952E1D /* ProspectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectView.swift; sourceTree = "<group>"; };
 		1E849C7427FE2F45008C46B8 /* Sheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheets.swift; sourceTree = "<group>"; };
 		1ED7D70327F95D0B00DC94A4 /* AllianceEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllianceEnum.swift; sourceTree = "<group>"; };
 		1ED7D70527F95D9D00DC94A4 /* DayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEnum.swift; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 				1ED7D71027F966AC00DC94A4 /* ScanButtonView.swift */,
 				1ED7D71A27F9CD0300DC94A4 /* PageListViewLayout.swift */,
 				2052F7A927FB1E0F001A2EFF /* DayButtonView.swift */,
+				1E07E57127FE388E00952E1D /* ProspectView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -385,6 +387,7 @@
 				20372A9D27FE07A000F0DF45 /* RobotListCellView.swift in Sources */,
 				1EDBAE2327F6BBE6006F898F /* Scout_InsightsApp.swift in Sources */,
 				1ED7D70427F95D0B00DC94A4 /* AllianceEnum.swift in Sources */,
+				1E07E57227FE388E00952E1D /* ProspectView.swift in Sources */,
 				20372AAB27FE26B600F0DF45 /* ScoutingSheetInfoView.swift in Sources */,
 				20372AA227FE088500F0DF45 /* SheetsDetailsView.swift in Sources */,
 			);
@@ -546,7 +549,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Scout Insights/Preview Content\"";
-				DEVELOPMENT_TEAM = K96A35TR3K;
+				DEVELOPMENT_TEAM = 7Y6U5WA8XQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Scout-Insights-Info.plist";
