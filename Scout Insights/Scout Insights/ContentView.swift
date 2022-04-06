@@ -16,7 +16,7 @@ struct ContentView: View {
         ZStack {
             VStack {
                 TabView(selection: $selectedTab) {
-                    PageListViewLayout(tab: 1, detailsView: AnyView(RobotDetailsView()), title: "Robots")
+                    PageListViewLayout(tab: 1, detailsView: AnyView(RobotDetailsView(team: 3990)), title: "Robots")
                         .tabItem {
                             Image(systemName: "gear.circle")
                             Text("Robot")
@@ -30,7 +30,7 @@ struct ContentView: View {
                 }
             }
             ScanButtonView()
-            DayButtonView()
+            DayButtonView(dayChosen: Int(DAY_1))
         }
     }
     

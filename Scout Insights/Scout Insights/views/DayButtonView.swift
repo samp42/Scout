@@ -8,26 +8,36 @@
 import SwiftUI
 
 struct DayButtonView: View {
+    @State var dayChosen: Int
     var body: some View {
-        VStack{
-            HStack{
+        VStack {
+            HStack {
                 Spacer()
-                Button {
+                // Other views
+                Text("\(dayChosen)th of April ")
+
+                // Button, that when tapped shows 3 options
+                Menu {
+                    Button(action: {
+                        dayChosen = Int(DAY_1)
+                    }) {
+                        Label("April 7", systemImage: "calendar.circle")
+                    }
+                    Button(action: {
+                        dayChosen = Int(DAY_2)
+                    }) {
+                        Label("April 8", systemImage: "calendar.circle")
+                    }
+                    Button(action: {
+                        dayChosen = Int(DAY_3)
+                    }) {
+                        Label("April 9", systemImage: "calendar.circle")
+                    }
                 } label: {
-                    Image(systemName: "calendar.badge.plus")
-                        .resizable()
-                        .padding(16)
-                        .foregroundColor(Color("T4K_Black"))
-                        .frame(width: 60, height: 60)
-                    Text("\(DAY_1)th Of April")
-                        .padding(14)
-                        .frame(width: 120, height: 60)
-                        .foregroundColor(Color.black)
-                }.background(Color("T4K_Yellow"))
-                    .cornerRadius(30)
-                    .shadow(color: Color("T4K_Yellow"), radius: 2, x: 2, y: 2)
-                    .padding([.all, .trailing], 30)
+                    Image(systemName: "ellipsis.circle")
+                }
             }
+            .padding(30)
             Spacer()
         }
     }
@@ -37,7 +47,7 @@ struct DayButtonView: View {
 struct DayButtonView_Preview: PreviewProvider {
     @available(iOS 15.0, *)
     static var previews: some View {
-        DayButtonView()
+        DayButtonView(dayChosen: Int(DAY_1))
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
