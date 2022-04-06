@@ -31,6 +31,9 @@
 		20372A9D27FE07A000F0DF45 /* RobotListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A9827FE07A000F0DF45 /* RobotListCellView.swift */; };
 		20372A9E27FE07A000F0DF45 /* StatisticsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A9A27FE07A000F0DF45 /* StatisticsListCellView.swift */; };
 		20372A9F27FE07A000F0DF45 /* StatisticsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A9B27FE07A000F0DF45 /* StatisticsDetailsView.swift */; };
+		20372AA227FE088500F0DF45 /* SheetsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372AA127FE088500F0DF45 /* SheetsDetailsView.swift */; };
+		20372AA427FE089100F0DF45 /* SheetsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372AA327FE089100F0DF45 /* SheetsListCellView.swift */; };
+		20372AAB27FE26B600F0DF45 /* ScoutingSheetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372AAA27FE26B600F0DF45 /* ScoutingSheetInfoView.swift */; };
 		2052F7AA27FB1E0F001A2EFF /* DayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2052F7A927FB1E0F001A2EFF /* DayButtonView.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +81,9 @@
 		20372A9827FE07A000F0DF45 /* RobotListCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotListCellView.swift; sourceTree = "<group>"; };
 		20372A9A27FE07A000F0DF45 /* StatisticsListCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsListCellView.swift; sourceTree = "<group>"; };
 		20372A9B27FE07A000F0DF45 /* StatisticsDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsDetailsView.swift; sourceTree = "<group>"; };
+		20372AA127FE088500F0DF45 /* SheetsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsDetailsView.swift; sourceTree = "<group>"; };
+		20372AA327FE089100F0DF45 /* SheetsListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsListCellView.swift; sourceTree = "<group>"; };
+		20372AAA27FE26B600F0DF45 /* ScoutingSheetInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutingSheetInfoView.swift; sourceTree = "<group>"; };
 		2052F7A927FB1E0F001A2EFF /* DayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButtonView.swift; sourceTree = "<group>"; };
 		20DCDAB527FA1A59008BF343 /* Scout-Insights-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Scout-Insights-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -127,6 +133,7 @@
 		1ED7D70F27F9669B00DC94A4 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				20372AA027FE085D00F0DF45 /* sheets */,
 				20372A9627FE07A000F0DF45 /* robot */,
 				20372A9927FE07A000F0DF45 /* statistics */,
 				1ED7D71027F966AC00DC94A4 /* ScanButtonView.swift */,
@@ -212,6 +219,16 @@
 				20372A9B27FE07A000F0DF45 /* StatisticsDetailsView.swift */,
 			);
 			path = statistics;
+			sourceTree = "<group>";
+		};
+		20372AA027FE085D00F0DF45 /* sheets */ = {
+			isa = PBXGroup;
+			children = (
+				20372AA127FE088500F0DF45 /* SheetsDetailsView.swift */,
+				20372AA327FE089100F0DF45 /* SheetsListCellView.swift */,
+				20372AAA27FE26B600F0DF45 /* ScoutingSheetInfoView.swift */,
+			);
+			path = sheets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,7 +374,7 @@
 				1ED7D71D27F9D04E00DC94A4 /* SerializationError.swift in Sources */,
 				1ED7D70827F95E0700DC94A4 /* CompetingTeams.swift in Sources */,
 				1ED7D71B27F9CD0300DC94A4 /* PageListViewLayout.swift in Sources */,
-				1E849C7527FE2F45008C46B8 /* Sheets.swift in Sources */,
+				20372AA427FE089100F0DF45 /* SheetsListCellView.swift in Sources */,
 				20372A9C27FE07A000F0DF45 /* RobotDetailsView.swift in Sources */,
 				1ED7D70627F95D9D00DC94A4 /* DayEnum.swift in Sources */,
 				1ED7D70E27F9662A00DC94A4 /* DefenseQualityEnum.swift in Sources */,
@@ -368,6 +385,8 @@
 				20372A9D27FE07A000F0DF45 /* RobotListCellView.swift in Sources */,
 				1EDBAE2327F6BBE6006F898F /* Scout_InsightsApp.swift in Sources */,
 				1ED7D70427F95D0B00DC94A4 /* AllianceEnum.swift in Sources */,
+				20372AAB27FE26B600F0DF45 /* ScoutingSheetInfoView.swift in Sources */,
+				20372AA227FE088500F0DF45 /* SheetsDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

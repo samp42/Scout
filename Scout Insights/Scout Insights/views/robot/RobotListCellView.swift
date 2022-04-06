@@ -11,7 +11,6 @@ struct RobotListCellView: View {
     var (team) : (Int)
     var body: some View {
         Text("Team \(String(team))")
-//        Text("temp")
     }
     
 }
