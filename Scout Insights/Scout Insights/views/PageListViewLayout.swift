@@ -28,13 +28,13 @@ struct PageListViewLayout: View {
                         case 1:
                             switch(dayTeams.dayTeams) {
                             case day1Teams:
-                                RobotListCellView(team: day1Teams[i])
+                                SheetsListCellView(team: day1Teams[i])
                             case day2Teams:
-                                RobotListCellView(team: day2Teams[i])
+                                SheetsListCellView(team: day2Teams[i])
                             default:
-                                RobotListCellView(team: day3Teams[i])
+                                SheetsListCellView(team: day3Teams[i])
                             }
-                        default:
+                        case 2:
                             switch(dayTeams.dayTeams) {
                             case day1Teams:
                                 StatisticsListCellView(team: day1Teams[i])
@@ -42,6 +42,15 @@ struct PageListViewLayout: View {
                                 StatisticsListCellView(team: day2Teams[i])
                             default:
                                 StatisticsListCellView(team: day3Teams[i])
+                            }
+                        default:
+                            switch(dayTeams.dayTeams) {
+                            case day1Teams:
+                                RobotListCellView(team: day1Teams[i])
+                            case day2Teams:
+                                RobotListCellView(team: day2Teams[i])
+                            default:
+                                RobotListCellView(team: day3Teams[i])
                             }
                         }
                     }

@@ -21,17 +21,23 @@ struct ContentView: View {
         ZStack {
             VStack {
                 TabView(selection: $selectedTab) {
-                    PageListViewLayout(tab: 1, detailsView: AnyView(RobotDetailsView(team: 3990)), title: "Robots")
+                    PageListViewLayout(tab: 1, detailsView: AnyView(SheetsDetailsView(team: 3990)), title: "Scouting Sheets")
                         .environmentObject(DayTeams())
                         .tabItem {
-                            Image(systemName: "gear.circle")
-                            Text("Robot")
+                            Image(systemName: "qrcode")
+                            Text("Scouting Sheets")
                     }
                     PageListViewLayout(tab: 2, detailsView: AnyView(StatisticsDetailsView()), title: "Statistics")
                         .environmentObject(DayTeams())
                         .tabItem {
                             Image(systemName: "chart.line.uptrend.xyaxis")
                             Text("Statistics")
+                    }
+                    PageListViewLayout(tab: 3, detailsView: AnyView(RobotDetailsView(team: 3990)), title: "Robots")
+                        .environmentObject(DayTeams())
+                        .tabItem {
+                            Image(systemName: "gear.circle")
+                            Text("Robot")
                     }
                     
                 }
