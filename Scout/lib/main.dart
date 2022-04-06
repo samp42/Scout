@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:scout/models/DayEnum.dart';
+import 'package:scout/models/DefenseQualityEnum.dart';
+import 'package:scout/models/DriverSkillsEnum.dart';
+import 'package:scout/models/RobotSpeedEnum.dart';
 import 'package:scout/models/scouting_sheet.dart';
 import 'package:scout/views/check_button.dart';
 import 'package:scout/views/counter.dart';
+import 'package:scout/views/match_info_view.dart';
 import 'package:scout/views/timer_button.dart';
 
 void main() {
@@ -36,15 +41,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -52,8 +48,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   ScoutingSheet _scoutingSheet = ScoutingSheet();
+
+  String _day = DayEnum.day1;
+
+  String _robotSpeed = RobotSpeedEnum.slow;
+  String _driverSkills = DriverSkillsEnums.bad;
+  String _defense = DefenseQualityEnum.na;
 
   void _incrementCounter() {
     setState(() {
@@ -62,7 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
     });
   }
 
@@ -73,53 +73,161 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: SingleChildScrollView(
-        child: Center(
+        child: Container(
+          margin: EdgeInsets.all(20),
           child: Column(
             children: [
               // MATCH INFO
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text("Match Info", style: TextStyle(fontSize: 32)),
-              ),
+              MatchInfoWidget(),
               // AUTONOMOUS
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text("Autonomous", style: TextStyle(fontSize: 32)),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("Autonomous", style: TextStyle(fontSize: 32)),
+                ),
               ),
-              Counter("Auto Cargo Upper Hub"),
-              Counter("Auto Cargo Lower Hub"),
-              Counter("Auto Fouls"),
-              CheckButton("Taxi"),
+              const Counter("Auto Cargo Upper Hub"),
+              const Counter("Auto Cargo Lower Hub"),
+              const Counter("Auto Fouls"),
+              const CheckButton("Taxi"),
               // TELEOP
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text("Teleop", style: TextStyle(fontSize: 32)),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("Teleop", style: TextStyle(fontSize: 32)),
+                ),
               ),
               Counter("Teleop Cargo Upper Hub"),
               Counter("Teleop Cargo Lower Hub"),
               Counter("Teleop Fouls"),
               // ENDGAME
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text("Endgame", style: TextStyle(fontSize: 32)),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("Endgame", style: TextStyle(fontSize: 32)),
+                ),
               ),
               TimerButton("Climb Time"),
               CheckButton("Successful"),
               CheckButton("Partner on Bar"),
               // GENERAL
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text("General", style: TextStyle(fontSize: 32)),
-              ),
-              ElevatedButton(
-                onPressed: _incrementCounter,
-                child: Row(
-                  children: [
-                    Icon(Icons.qr_code),
-                    Text("Generate QR Code")
-                  ],
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text("General", style: TextStyle(fontSize: 32)),
                 ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Robot Speed"),
+                  Container(
+                    width: 200,
+                    child: DropdownButton<String>(
+                      value: _robotSpeed,
+                      icon: const Icon(Icons.arrow_downward),
+                      elevation: 16,
+                      style: const TextStyle(color: Colors.black87),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.black,
+                      ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _robotSpeed = newValue!;
+                        });
+                      },
+                      items: <String>['Slow', 'Medium', 'Fast']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Driver Skills"),
+                  Container(
+                    width: 200,
+                    child: DropdownButton<String>(
+                      value: _driverSkills,
+                      icon: const Icon(Icons.arrow_downward),
+                      elevation: 16,
+                      style: const TextStyle(color: Colors.black87),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.black,
+                      ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _driverSkills = newValue!;
+                        });
+                      },
+                      items: <String>['Bad', 'Acceptable', 'Good']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Defense Quality"),
+                  Container(
+                    width: 200,
+                    child: DropdownButton<String>(
+                      value: _defense,
+                      icon: const Icon(Icons.arrow_downward),
+                      elevation: 16,
+                      style: const TextStyle(color: Colors.black87),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.black,
+                      ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _defense = newValue!;
+                        });
+                      },
+                      items: <String>['NA', 'Bad', 'Acceptable', 'Good']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                  margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                        EdgeInsets.fromLTRB(10, 15, 10, 15),
+                      ),
+                    ),
+                    onPressed: _incrementCounter,
+                    child: Row(
+                      children: [Icon(Icons.qr_code), Text("Generate QR Code")],
+                    ),
+                  ),
+              )
             ],
           ),
         ),
