@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct ScoutingSheet {
+    // scouting sheet id
+    let id: String
+    
     // match info
     let matchNumber: Int
     let day: DayEnum
@@ -38,6 +41,7 @@ struct ScoutingSheet {
     let defenseQuality: DefenseQualityEnum
     
     public init(
+        id: String,
         matchNumber: Int,
         day: DayEnum,
         alliance: AllianceEnum,
@@ -57,6 +61,7 @@ struct ScoutingSheet {
         driverSkills: DriverSkillsEnum,
         defenseQuality: DefenseQualityEnum
     ) {
+        self.id = id
         self.matchNumber = matchNumber
         self.day = day
         self.alliance = alliance
@@ -82,6 +87,10 @@ struct ScoutingSheet {
     }
     
     public init?(JSON: [String: Any]) throws {
+        guard let id = JSON["id"] as? String else {
+            throw SerializationError.invalid("id", JSON["id"]!)
+        }
+        
         guard let matchNumber = JSON["matchNumber"] as? Int else {
             throw SerializationError.missing("matchNumber")
         }
@@ -160,15 +169,16 @@ struct ScoutingSheet {
         }
         let defenseQuality = DefenseQualityEnum(rawValue: defenseQualityJson)
     
-                
+        self.id = id
+        
         self.matchNumber = matchNumber
         self.day = day!
         self.alliance = alliance!
         self.teamNumber = teamNumber
 
-        self.taxi = taxi
         self.autoCargoUpperHub = autoCargoUpperHub
         self.autoCargoLowerHub = autoCargoLowerHub
+        self.taxi = taxi
         self.autoFouls = autoFouls
 
         self.teleopCargoUpperHub = teleopCargoUpperHub
@@ -187,13 +197,14 @@ struct ScoutingSheet {
     
     public static func makeJsonMock() -> [String: Any] {
         let dict: [String: Any] = [
+            "id": "12345abcdef",
             "matchNumber": 4,
             "day": "Day 1",
             "alliance": 0,
             "teamNumber": competingTeams[10],
-            "taxi": true,
             "autoCargoUpperHub": 3,
             "autoCargoLowerHub": 2,
+            "taxi": true,
             "autoFouls": 2,
             "teleopCargoUpperHub": 10,
             "teleopCargoLowerHub": 2,
@@ -208,3 +219,23 @@ struct ScoutingSheet {
         return dict
     }
 }
+
+let fields = [
+    "id",
+    "matchNumber",
+    "day",
+    "alliance",
+    "teamNumber",
+    "autoCargoUpperHub",
+    "autoCargoLowerHub",
+    "taxi",
+    "autoFouls",
+    "teleopCargoUpperHub",
+    "teleopCargoLowerHub",
+    "teleopFouls",
+    "climbTime",
+    "partnerOnBar",
+    "robotSpeed",
+    "driverSkills",
+    "defenseQuality"
+]

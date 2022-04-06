@@ -21,7 +21,7 @@ struct ContentView: View {
     @StateObject var scanningData = ScanningData()
     @EnvironmentObject var dayTeams: DayTeams
     @State private var selectedTab = 0
-    @State private var isShowingScanner = false
+    @State private var scanningErrorMessage: String? = nil
     
     var body: some View {
         ZStack {
@@ -50,12 +50,37 @@ struct ContentView: View {
             }
             ScanButtonView(scanningData: scanningData)
             DayButtonView().environmentObject(DayTeams())
+        }.sheet(isPresented: $scanningData.showScanner) {
+            CodeScannerView(codeTypes: [.qr], simulatedData: "test", completion: handleScan)
         }
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {
-        isShowingScanner = false
+        scanningData.showScanner = false
         
+        switch result {
+        case .success(let result):
+            let details = result.string.components(separatedBy: "\n")
+            
+            // expect 19 fields
+            guard details.count == 19 else {
+                scanningErrorMessage = "Received Unusual Object";
+                return;
+            }
+            
+            let dict: [String: Any] = [:]
+            
+            var scoutingSheet: ScoutingSheet?
+            
+            do{
+                scoutingSheet = try ScoutingSheet(JSON: dict) ?? nil
+            } catch {
+                scanningErrorMessage = "Failed to create ScoutingSheet"
+            }
+            
+        case .failure(let error):
+            scanningErrorMessage = "Failed to read QR code."
+        }
         
     }
 }

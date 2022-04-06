@@ -23,6 +23,7 @@ class ScoutingSheetTest: XCTestCase {
         let actual = try ScoutingSheet(JSON: ScoutingSheet.makeJsonMock())
         
         // expected actual
+        XCTAssertTrue((expected["id"] as! String) == actual?.id)
         XCTAssertTrue((expected["matchNumber"] as! Int) == actual?.matchNumber)
         XCTAssert((expected["day"] as! DayEnum) == actual?.day)
         XCTAssert((expected["alliance"] as! AllianceEnum) == actual?.alliance)
@@ -31,11 +32,9 @@ class ScoutingSheetTest: XCTestCase {
         XCTAssert((expected["autoCargoUpperHub"] as! Int) == actual?.autoCargoUpperHub)
         XCTAssert((expected["autoCargoLowerHub"] as! Int) == actual?.autoCargoLowerHub)
         XCTAssert((expected["autoFouls"] as! Int) == actual?.autoFouls)
-        XCTAssert((expected["autoTechFouls"] as! Int) == actual?.autoTechFouls)
         XCTAssert((expected["teleopCargoUpperHub"] as! Int) == actual?.teleopCargoUpperHub)
         XCTAssert((expected["teleopCargoLowerHub"] as! Int) == actual?.teleopCargoLowerHub)
         XCTAssert((expected["teleopFouls"] as! Int) == actual?.teleopFouls)
-        XCTAssert((expected["teleopTechFouls"] as! Int) == actual?.teleopTechFouls)
         XCTAssert((expected["climbTime"] as! Int) == actual?.climbTime)
         XCTAssert((expected["partnerOnBar"] as! Bool) == actual?.partnerOnBar)
         XCTAssert((expected["RobotSpeed"] as! RobotSpeedEnum) == actual?.robotSpeed)
