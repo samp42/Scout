@@ -82,7 +82,11 @@ struct ContentView: View {
             
             do{
                 scoutingSheet = try ScoutingSheet(JSON: dict) ?? nil
-                SheetsState.scoutingSheets.append(scoutingSheet!)
+                
+                // only add if no sheet exists with same id
+                if(SheetsState.scoutingSheets.filter({$0.id == scoutingSheet!.id}).isEmpty) {
+                    SheetsState.scoutingSheets.append(scoutingSheet!)
+                }
                 scanningData.sheet = scoutingSheet
             } catch {
                 scanningErrorMessage = "Failed to create ScoutingSheet"
