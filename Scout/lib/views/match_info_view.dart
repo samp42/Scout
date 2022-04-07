@@ -4,7 +4,12 @@ import 'package:scout/models/CompetingTeams.dart';
 import 'package:scout/models/DayEnum.dart';
 
 class MatchInfoWidget extends StatefulWidget {
-  const MatchInfoWidget({Key? key}) : super(key: key);
+  final dayController;
+  final matchController;
+  final allianceController;
+  final teamController;
+
+  const MatchInfoWidget(this.dayController, this.matchController, this.allianceController, this.teamController, {Key? key}) : super(key: key);
 
   @override
   _MatchInfoWidgetState createState() => _MatchInfoWidgetState();
@@ -14,22 +19,22 @@ class _MatchInfoWidgetState extends State<MatchInfoWidget> {
   String _day = DayEnum.day1;
   int _matchNumber = 0;
   String _alliance = AllianceEnum.blue;
-  List _teams = CompetingTeams.competingTeams()[0];
-  int _teamNumber = CompetingTeams.day1Teams()[0];
+  List _teams = CompetingTeams.competingTeams[0];
+  int _teamNumber = CompetingTeams.day1Teams[0];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
+        const Align(
           alignment: Alignment.topLeft,
           child: Text("Match Info", style: TextStyle(fontSize: 32)),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Day"),
-            Container(
+            const Text("Day"),
+            SizedBox(
               width: 200,
               child: DropdownButton<String>(
                 value: _day,
@@ -43,6 +48,7 @@ class _MatchInfoWidgetState extends State<MatchInfoWidget> {
                 onChanged: (String? newValue) {
                   setState(() {
                     _day = newValue!;
+                    widget.dayController.value = _day;
                   });
                 },
                 items: <String>['Day 1', 'Day 2', 'Day 3']
@@ -57,8 +63,9 @@ class _MatchInfoWidgetState extends State<MatchInfoWidget> {
           ],
         ),
         TextField(
-          obscureText: true,
-          decoration: InputDecoration(
+          controller: widget.matchController,
+          keyboardType: TextInputType.number,
+          decoration: const InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Match Number',
           ),
@@ -66,8 +73,8 @@ class _MatchInfoWidgetState extends State<MatchInfoWidget> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Alliance"),
-            Container(
+            const Text("Alliance"),
+            SizedBox(
               width: 200,
               child: DropdownButton<String>(
                 value: _alliance,
@@ -81,6 +88,7 @@ class _MatchInfoWidgetState extends State<MatchInfoWidget> {
                 onChanged: (String? newValue) {
                   setState(() {
                     _alliance = newValue!;
+                    widget.allianceController.value = _alliance;
                   });
                 },
                 items: <String>['Blue', 'Red']
@@ -95,8 +103,9 @@ class _MatchInfoWidgetState extends State<MatchInfoWidget> {
           ],
         ),
         TextField(
-          obscureText: true,
-          decoration: InputDecoration(
+          controller: widget.teamController,
+          keyboardType: TextInputType.number,
+          decoration: const InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Team Number',
           ),

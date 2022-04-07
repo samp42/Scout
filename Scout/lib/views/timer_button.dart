@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class TimerButton extends StatefulWidget {
   final String text;
+  final controller;
 
-  const TimerButton(this.text, {Key? key}) : super(key: key);
+  const TimerButton(this.text, this.controller, {Key? key}) : super(key: key);
 
   @override
   _TimerState createState() => _TimerState();
@@ -12,52 +13,48 @@ class TimerButton extends StatefulWidget {
 class _TimerState extends State<TimerButton> {
   final Stopwatch _stopwatch = Stopwatch();
 
-  double _time = 0.0;
-  bool _isCounting = false;
+  double time = 0.0;
   bool _hasCounted = false;
   static const delta = Duration(milliseconds: 100);
 
   void _startTimer() {
-    _isCounting = true;
-    _hasCounted = false;
-    _stopwatch.start();
+    setState(() {
+      _hasCounted = false;
+      _stopwatch.start();
+    });
   }
 
   void _stopTimer() {
     setState(() {
-      _isCounting = false;
       _hasCounted = true;
-      _time = (_stopwatch.elapsedMilliseconds / 1000);
+      time = (_stopwatch.elapsedMilliseconds / 1000);
       _stopwatch.stop();
+      widget.controller.value = time.round();
     });
   }
 
   void _resetTimer() {
     setState(() {
-      _isCounting = false;
       _hasCounted = false;
       _stopwatch.reset();
     });
   }
 
   void _count() {
-    if(_stopwatch.isRunning) {
-      print("${_stopwatch.elapsedMilliseconds}");
+    if (_stopwatch.isRunning) {
       _stopTimer();
-      print("${_time}");
     } else {
       _startTimer();
     }
   }
 
   String _getText() {
-    if(_hasCounted) {
-      return _time.toString();
+    if (_hasCounted) {
+      return time.toString();
     }
 
-    if(_isCounting) {
-      print("TIME " + (_stopwatch.elapsedMilliseconds / 1000).toString());
-      return (_stopwatch.elapsedMilliseconds / 1000).toString();
+    if (_stopwatch.isRunning) {
+      return "Stop";
     }
 
     return "Start";
@@ -68,15 +65,26 @@ class _TimerState extends State<TimerButton> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
+        Text(widget.text),
         Row(
           children: [
-            Text(widget.text),
-            TextButton(onPressed: _resetTimer, child: const Icon(Icons.undo)),
+            TextButton(
+              onPressed: _resetTimer,
+              child: const Text(
+                "Reset",
+              ),
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all(Colors.black),
+              ),
+            ),
             ElevatedButton(
               onPressed: () {
                 _count();
               },
               child: Text(_getText()),
+              style: ButtonStyle(
+                  backgroundColor: _stopwatch.isRunning ? MaterialStateProperty.all(Colors.red) : MaterialStateProperty.all(Colors.green),
+              ),
             ),
           ],
         ),
