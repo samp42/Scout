@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct SheetsDetailsView: View {
+    @EnvironmentObject var appState: AppState
+    
     let team: Int
-    var sheets: [ScoutingSheet]
-    
-    init(team: Int) {
-        self.team = team
-        self.sheets = SheetsState.scoutingSheets.filter({$0.teamNumber == team})
-    }
-    
+    let sheets: [ScoutingSheet]
+
     var body: some View {
         ScrollView{
             ForEach(sheets, id: \.id) { sheet in
@@ -28,8 +25,12 @@ struct SheetsDetailsView: View {
 @available(iOS 15.0, *)
 struct SheetsDetailsView_Previews: PreviewProvider {
     @available(iOS 15.0, *)
+    static let appState = AppState()
+//    appState.addScoutingSheet(scoutingSheet: ScoutingSheet(JSON: ScoutingSheet.makeJsonMock()))
+    
     static var previews: some View {
-        SheetsDetailsView(team: 1)
+        SheetsDetailsView(team: 3990, sheets: appState.getScoutingSheetsOfTeam(team: 3990))
+            .environmentObject(appState)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

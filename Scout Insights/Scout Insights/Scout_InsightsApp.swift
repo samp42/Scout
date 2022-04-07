@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Scout_InsightsApp: App {
+    var appState = AppState()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(appState)
         }
     }
 }

@@ -8,9 +8,6 @@
 import CodeScanner
 import SwiftUI
 
-class DayTeams: ObservableObject {
-    @Published var dayTeams = day1Teams
-}
 
 class ScanningData: ObservableObject{
     @Published var showScanner: Bool = false
@@ -19,7 +16,7 @@ class ScanningData: ObservableObject{
 
 struct ContentView: View {
     @StateObject var scanningData = ScanningData()
-    @EnvironmentObject var dayTeams: DayTeams
+    @EnvironmentObject var appSate: AppState
     @State private var selectedTab = 0
     @State private var scanningErrorMessage: String? = nil
     
@@ -27,29 +24,29 @@ struct ContentView: View {
         ZStack {
             VStack {
                 TabView(selection: $selectedTab) {
-                    PageListViewLayout(tab: 1, detailsView: AnyView(SheetsDetailsView(team: 3990)), title: "Scouting Sheets")
-                        .environmentObject(DayTeams())
+                    SheetsPageView()
+                        .environmentObject(AppState())
                         .tabItem {
                             Image(systemName: "qrcode")
                             Text("Scouting Sheets")
                     }
-                    PageListViewLayout(tab: 2, detailsView: AnyView(StatisticsDetailsView()), title: "Statistics")
-                        .environmentObject(DayTeams())
-                        .tabItem {
-                            Image(systemName: "chart.line.uptrend.xyaxis")
-                            Text("Statistics")
-                    }
-                    PageListViewLayout(tab: 3, detailsView: AnyView(RobotDetailsView(team: 3990)), title: "Robots")
-                        .environmentObject(DayTeams())
-                        .tabItem {
-                            Image(systemName: "gear.circle")
-                            Text("Robot")
-                    }
+//                    PageListViewLayout(tab: 2, detailsView: AnyView(StatisticsDetailsView()), title: "Statistics")
+//                        .environmentObject(AppState())
+//                        .tabItem {
+//                            Image(systemName: "chart.line.uptrend.xyaxis")
+//                            Text("Statistics")
+//                    }
+//                    PageListViewLayout(tab: 3, detailsView: AnyView(RobotDetailsView(team: 3990)), title: "Robots")
+//                        .environmentObject(AppState())
+//                        .tabItem {
+//                            Image(systemName: "gear.circle")
+//                            Text("Robot")
+//                    }
                     
                 }
             }
             ScanButtonView(scanningData: scanningData)
-            DayButtonView().environmentObject(DayTeams())
+//            DayButtonView().environmentObject(DayTeams())
         }.sheet(isPresented: $scanningData.showScanner) {
             CodeScannerView(codeTypes: [.qr], simulatedData: "test", completion: handleScan)
         }
@@ -83,10 +80,7 @@ struct ContentView: View {
             do{
                 scoutingSheet = try ScoutingSheet(JSON: dict) ?? nil
                 
-                // only add if no sheet exists with same id
-                if(SheetsState.scoutingSheets.filter({$0.id == scoutingSheet!.id}).isEmpty) {
-                    SheetsState.scoutingSheets.append(scoutingSheet!)
-                }
+                appSate.addScoutingSheet(scoutingSheet: scoutingSheet!)
                 scanningData.sheet = scoutingSheet
             } catch {
                 scanningErrorMessage = "Failed to create ScoutingSheet"
@@ -102,10 +96,12 @@ struct ContentView: View {
 @available(iOS 15.0, *)
 struct ContentView_Previews: PreviewProvider {
     @available(iOS 15.0, *)
-    static let dayTeams = DayTeams()
+    static var appState = AppState()
+//    self.appState.scoutingSheets = ScoutingSheet(JSON: ScoutingSheet.makeJsonMock())
+    
     static var previews: some View {
         ContentView()
-            .environmentObject(dayTeams)
+            .environmentObject(appState)
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
