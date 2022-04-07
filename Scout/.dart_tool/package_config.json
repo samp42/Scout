@@ -111,7 +111,7 @@
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.2",
+      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4",
       "packageUri": "lib/",
       "languageVersion": "2.13"
     },
@@ -123,7 +123,7 @@
     },
     {
       "name": "path",
-      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
+      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/path-1.8.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -134,6 +134,18 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "qr",
+      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/qr-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "qr_flutter",
+      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/qr_flutter-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/samuelproulx/Developer/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -141,9 +153,9 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.1",
+      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.14"
     },
     {
       "name": "stack_trace",
@@ -171,7 +183,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.8",
+      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -182,8 +194,14 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "uuid",
+      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/uuid-3.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "vector_math",
-      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.1",
+      "rootUri": "file:///Users/samuelproulx/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -206,7 +224,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-04-06T05:13:00.806182Z",
+  "generated": "2022-04-07T07:03:15.035864Z",
   "generator": "pub",
-  "generatorVersion": "2.16.0-80.1.beta"
+  "generatorVersion": "2.17.0-182.2.beta"
 }
