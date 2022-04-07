@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AllianceEnum: Int {
-    case BLUE = 0
-    case RED = 1
+enum AllianceEnum: String {
+    case BLUE = "Blue"
+    case RED = "Red"
 }

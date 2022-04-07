@@ -26,7 +26,7 @@ struct ScoutingSheetInfoView: View {
                             .padding(10)
                         Text(scoutingSheet.day.rawValue)
                             .padding(10)
-                        Text(getAlliance())
+                        Text("\(scoutingSheet.alliance.rawValue) Alliance")
                             .padding(10)
                         Text("Team \(scoutingSheet.teamNumber)")
                             .padding(10)
@@ -57,8 +57,6 @@ struct ScoutingSheetInfoView: View {
                             .padding(10)
                         Text("Successful: \(String(scoutingSheet.successful))")
                             .padding(10)
-                        Text("Tries: \(String(scoutingSheet.tries))")
-                            .padding(10)
                         Text("Partner On Bar: \(String(scoutingSheet.partnerOnBar))")
                             .padding(10)
                         Spacer()
@@ -87,20 +85,10 @@ struct ScoutingSheetInfoView: View {
             Spacer()
         }
     }
-        
-        func getAlliance() -> String {
-            if (scoutingSheet.alliance == AllianceEnum.BLUE) {
-                return "Blue Alliance"
-            }
-            else {
-                return "Red Alliance"
-            }
-            
-        }
 }
 
 struct ScoutingSheetInfoView_Previews: PreviewProvider {
-    static let scoutingSheet = ScoutingSheet(id: "123456abcdef", matchNumber: 1, day: DayEnum.DAY1, alliance: AllianceEnum.BLUE, teamNumber: 3990, taxi: true, autoCargoUpperHub: 3, autoCargoLowerHub: 5, autoFouls: 2, teleopCargoUpperHub: 5, teleopCargoLowerHub: 4, teleopFouls: 7, climbTime: 9, successful: true, tries: 1, partnerOnBar: true, robotSpeed: RobotSpeedEnum.FAST, driverSkills: DriverSkillsEnum.GOOD, defenseQuality: DefenseQualityEnum.GOOD)
+    static let scoutingSheet = ScoutingSheet(id: "123456abcdef", matchNumber: 1, day: DayEnum.DAY1, alliance: AllianceEnum.BLUE, teamNumber: 3990, taxi: true, autoCargoUpperHub: 3, autoCargoLowerHub: 5, autoFouls: 2, teleopCargoUpperHub: 5, teleopCargoLowerHub: 4, teleopFouls: 7, climbTime: 9, successful: true, partnerOnBar: true, robotSpeed: RobotSpeedEnum.FAST, driverSkills: DriverSkillsEnum.GOOD, defenseQuality: DefenseQualityEnum.GOOD)
     
     static var previews: some View {
         ScoutingSheetInfoView(scoutingSheet: scoutingSheet, matchNumber: 1)

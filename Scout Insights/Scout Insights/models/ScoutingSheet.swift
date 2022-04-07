@@ -32,7 +32,6 @@ struct ScoutingSheet {
     // endgame
     let climbTime: Int // number of seconds
     let successful: Bool
-    let tries: Int
     let partnerOnBar: Bool
 
     // general
@@ -55,7 +54,6 @@ struct ScoutingSheet {
         teleopFouls: Int,
         climbTime: Int,
         successful: Bool,
-        tries: Int,
         partnerOnBar: Bool,
         robotSpeed: RobotSpeedEnum,
         driverSkills: DriverSkillsEnum,
@@ -78,7 +76,6 @@ struct ScoutingSheet {
         
         self.climbTime = climbTime
         self.successful = successful
-        self.tries = tries
         self.partnerOnBar = partnerOnBar
         
         self.robotSpeed = robotSpeed
@@ -86,14 +83,15 @@ struct ScoutingSheet {
         self.defenseQuality = defenseQuality
     }
     
-    public init?(JSON: [String: Any]) throws {
+    public init?(JSON: [String: Any]) throws {        
         guard let id = JSON["id"] as? String else {
             throw SerializationError.invalid("id", JSON["id"]!)
         }
         
-        guard let matchNumber = JSON["matchNumber"] as? Int else {
+        guard let matchNumberJSON = JSON["matchNumber"] as? String else {
             throw SerializationError.missing("matchNumber")
         }
+        let matchNumber = Int(matchNumberJSON)
 
         guard let dayJson = JSON["day"] as? String else {
             throw SerializationError.invalid("day", JSON["day"]!)
@@ -101,58 +99,65 @@ struct ScoutingSheet {
         let day = DayEnum(rawValue: dayJson)
                 
         
-        guard let allianceJson = JSON["alliance"] as? Int else {
+        guard let allianceJson = JSON["alliance"] as? String else {
             throw SerializationError.invalid("alliance", JSON["alliance"]!)
         }
         let alliance = AllianceEnum(rawValue: allianceJson)
         
-        guard let teamNumber = JSON["teamNumber"] as? Int else {
+        guard let teamNumberJson = JSON["teamNumber"] as? String else {
             throw SerializationError.missing("teamNumber")
         }
+        let teamNumber = Int(teamNumberJson)
         
-        guard let taxi = JSON["taxi"] as? Bool else {
+        guard let taxiJson = JSON["taxi"] as? String else {
             throw SerializationError.missing("taxi")
         }
+        let taxi = Bool(taxiJson)
         
-        guard let autoCargoUpperHub = JSON["autoCargoUpperHub"] as? Int else {
+        guard let autoCargoUpperHubJson = JSON["autoCargoUpperHub"] as? String else {
             throw SerializationError.missing("autoCargoUpperHub")
         }
+        let autoCargoUpperHub = Int(autoCargoUpperHubJson)
         
-        guard let autoCargoLowerHub = JSON["autoCargoLowerHub"] as? Int else {
+        guard let autoCargoLowerHubJson = JSON["autoCargoLowerHub"] as? String else {
             throw SerializationError.missing("autoCargoLowerHub")
         }
+        let autoCargoLowerHub = Int(autoCargoLowerHubJson)
         
-        guard let autoFouls = JSON["autoFouls"] as? Int else {
+        guard let autoFoulsJson = JSON["autoFouls"] as? String else {
             throw SerializationError.missing("autoFouls")
         }
+        let autoFouls = Int(autoFoulsJson)
         
-        guard let teleopCargoUpperHub = JSON["teleopCargoUpperHub"] as? Int else {
+        guard let teleopCargoUpperHubJson = JSON["teleopCargoUpperHub"] as? String else {
             throw SerializationError.missing("teleopCargoUpperHub")
         }
+        let teleopCargoUpperHub = Int(teleopCargoUpperHubJson)
         
-        guard let teleopCargoLowerHub = JSON["teleopCargoLowerHub"] as? Int else {
+        guard let teleopCargoLowerHubJson = JSON["teleopCargoLowerHub"] as? String else {
             throw SerializationError.missing("teleopCargoLowerHub")
         }
+        let teleopCargoLowerHub = Int(teleopCargoLowerHubJson)
         
-        guard let teleopFouls = JSON["teleopFouls"] as? Int else {
+        guard let teleopFoulsJson = JSON["teleopFouls"] as? String else {
             throw SerializationError.missing("teleopFouls")
         }
+        let teleopFouls = Int(teleopFoulsJson)
         
-        guard let climbTime = JSON["climbTime"] as? Int else {
+        guard let climbTimeJson = JSON["climbTime"] as? String else {
             throw SerializationError.missing("climbTime")
         }
+        let climbTime = Int(climbTimeJson)
         
-        guard let successful = JSON["successful"] as? Bool else {
+        guard let successfulJson = JSON["successful"] as? String else {
             throw SerializationError.missing("successful")
         }
-        
-        guard let tries = JSON["tries"] as? Int else {
-            throw SerializationError.missing("tries")
-        }
+        let successful = Bool(successfulJson)
 
-        guard let partnerOnBar = JSON["partnerOnBar"] as? Bool else {
+        guard let partnerOnBarJson = JSON["partnerOnBar"] as? String else {
             throw SerializationError.missing("partnerOnBar")
         }
+        let partnerOnBar = Bool(partnerOnBarJson)
         
         guard let robotSpeedJson = JSON["robotSpeed"] as? String else {
             throw SerializationError.invalid("robotSpeed", JSON["robotSpeed"]!)
@@ -171,24 +176,23 @@ struct ScoutingSheet {
     
         self.id = id
         
-        self.matchNumber = matchNumber
+        self.matchNumber = matchNumber!
         self.day = day!
         self.alliance = alliance!
-        self.teamNumber = teamNumber
+        self.teamNumber = teamNumber!
 
-        self.autoCargoUpperHub = autoCargoUpperHub
-        self.autoCargoLowerHub = autoCargoLowerHub
-        self.taxi = taxi
-        self.autoFouls = autoFouls
+        self.autoCargoUpperHub = autoCargoUpperHub!
+        self.autoCargoLowerHub = autoCargoLowerHub!
+        self.taxi = taxi!
+        self.autoFouls = autoFouls!
 
-        self.teleopCargoUpperHub = teleopCargoUpperHub
-        self.teleopCargoLowerHub = teleopCargoLowerHub
-        self.teleopFouls = teleopFouls
+        self.teleopCargoUpperHub = teleopCargoUpperHub!
+        self.teleopCargoLowerHub = teleopCargoLowerHub!
+        self.teleopFouls = teleopFouls!
 
-        self.climbTime = climbTime
-        self.successful = successful
-        self.tries = tries
-        self.partnerOnBar = partnerOnBar
+        self.climbTime = climbTime!
+        self.successful = successful!
+        self.partnerOnBar = partnerOnBar!
 
         self.robotSpeed = robotSpeed!
         self.driverSkills = driverSkills!
