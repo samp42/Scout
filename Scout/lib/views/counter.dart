@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:scout/models/GenericController.dart';
 
 class Counter extends StatefulWidget {
   final String text;
+  final GenericController controller;
 
-  const Counter(this.text, {Key? key}) : super(key: key);
+  Counter(this.text, this.controller, {Key? key}) : super(key: key) {
+    controller.value = 0;
+  }
 
   @override
   _CounterState createState() => _CounterState();
@@ -16,6 +20,7 @@ class _CounterState extends State<Counter> {
     setState(() {
       if (_counter > 0) {
         _counter--;
+        widget.controller.value--;
       }
     });
   }
@@ -23,6 +28,7 @@ class _CounterState extends State<Counter> {
   void _incrementCounter() {
     setState(() {
       _counter++;
+      widget.controller.value++;
     });
   }
 
@@ -36,12 +42,12 @@ class _CounterState extends State<Counter> {
           children: [
             TextButton(
               onPressed: _decrementCounter,
-              child: const Icon(Icons.remove, color: Colors.redAccent),
+              child: const Icon(Icons.remove, color: Colors.red),
             ),
             Text("$_counter"),
             TextButton(
               onPressed: _incrementCounter,
-              child: const Icon(Icons.add, color: Colors.greenAccent),
+              child: const Icon(Icons.add, color: Colors.green),
             ),
           ],
         )

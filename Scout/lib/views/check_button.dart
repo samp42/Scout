@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:scout/models/GenericController.dart';
 
 class CheckButton extends StatefulWidget {
   final String text;
+  GenericController controller;
 
-  const CheckButton(this.text, {Key? key}) : super(key: key);
+  CheckButton(this.text, this.controller, {Key? key}) : super(key: key);
 
   @override
   _CheckButtonState createState() => _CheckButtonState();
@@ -15,6 +17,8 @@ class _CheckButtonState extends State<CheckButton> {
   void _toggle(bool selection) {
     setState(() {
       _selected = selection;
+      widget.controller.value = _selected;
+      print(widget.controller.value);
     });
   }
 
@@ -30,7 +34,7 @@ class _CheckButtonState extends State<CheckButton> {
               value: _selected,
               onChanged: (bool? value) {
                 setState(() {
-                  _selected = value!;
+                  _toggle(value!);
                 });
               }),
         )
