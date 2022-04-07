@@ -60,25 +60,35 @@ struct ContentView: View {
         
         switch result {
         case .success(let result):
-            let details = result.string.components(separatedBy: "\n")
+            let details = result.string.components(separatedBy: ",")
             
-            // expect 19 fields
-            guard details.count == 19 else {
-                scanningErrorMessage = "Received Unusual Object";
-                return;
+            // expect 18 fields
+            guard details.count == 18 else {
+                scanningErrorMessage = "Received Unusual Object"
+                return
             }
             
-            let dict: [String: Any] = [:]
+            var dict: [String: Any] = [:]
+            
+            for field in details {
+                let pair = field.components(separatedBy: ":")
+                
+                dict.updateValue(
+                    pair[1].trimmingCharacters(in: CharacterSet(charactersIn: "{ }")),
+                    forKey: pair[0].trimmingCharacters(in: CharacterSet(charactersIn: "{ }")))
+            }
             
             var scoutingSheet: ScoutingSheet?
             
             do{
                 scoutingSheet = try ScoutingSheet(JSON: dict) ?? nil
+                SheetsState.scoutingSheets.append(scoutingSheet!)
+                scanningData.sheet = scoutingSheet
             } catch {
                 scanningErrorMessage = "Failed to create ScoutingSheet"
             }
             
-        case .failure(let error):
+        case .failure(_):
             scanningErrorMessage = "Failed to read QR code."
         }
         

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E07E57227FE388E00952E1D /* ProspectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E07E57127FE388E00952E1D /* ProspectView.swift */; };
+		1EC2966C27FECCC500F04DA1 /* SheetsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC2966B27FECCC500F04DA1 /* SheetsState.swift */; };
 		1ED7D70427F95D0B00DC94A4 /* AllianceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70327F95D0B00DC94A4 /* AllianceEnum.swift */; };
 		1ED7D70627F95D9D00DC94A4 /* DayEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70527F95D9D00DC94A4 /* DayEnum.swift */; };
 		1ED7D70827F95E0700DC94A4 /* CompetingTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED7D70727F95E0700DC94A4 /* CompetingTeams.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		1E07E57127FE388E00952E1D /* ProspectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectView.swift; sourceTree = "<group>"; };
 		1E849C7427FE2F45008C46B8 /* Sheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheets.swift; sourceTree = "<group>"; };
+		1EC2966B27FECCC500F04DA1 /* SheetsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsState.swift; sourceTree = "<group>"; };
 		1ED7D70327F95D0B00DC94A4 /* AllianceEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllianceEnum.swift; sourceTree = "<group>"; };
 		1ED7D70527F95D9D00DC94A4 /* DayEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEnum.swift; sourceTree = "<group>"; };
 		1ED7D70727F95E0700DC94A4 /* CompetingTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetingTeams.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				1EDBAE2427F6BBE6006F898F /* ContentView.swift */,
 				1EDBAE2627F6BBE7006F898F /* Assets.xcassets */,
 				1EDBAE2827F6BBE7006F898F /* Preview Content */,
+				1EC2966B27FECCC500F04DA1 /* SheetsState.swift */,
 			);
 			path = "Scout Insights";
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				1ED7D71127F966AC00DC94A4 /* ScanButtonView.swift in Sources */,
 				20372A9F27FE07A000F0DF45 /* StatisticsDetailsView.swift in Sources */,
 				1ED7D71927F96D2900DC94A4 /* ScoutingSheet.swift in Sources */,
+				1EC2966C27FECCC500F04DA1 /* SheetsState.swift in Sources */,
 				1EDBAE2527F6BBE6006F898F /* ContentView.swift in Sources */,
 				1ED7D71D27F9D04E00DC94A4 /* SerializationError.swift in Sources */,
 				1ED7D70827F95E0700DC94A4 /* CompetingTeams.swift in Sources */,

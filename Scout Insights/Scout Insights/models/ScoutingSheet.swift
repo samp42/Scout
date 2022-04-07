@@ -220,22 +220,3 @@ struct ScoutingSheet {
     }
 }
 
-let fields = [
-    "id",
-    "matchNumber",
-    "day",
-    "alliance",
-    "teamNumber",
-    "autoCargoUpperHub",
-    "autoCargoLowerHub",
-    "taxi",
-    "autoFouls",
-    "teleopCargoUpperHub",
-    "teleopCargoLowerHub",
-    "teleopFouls",
-    "climbTime",
-    "partnerOnBar",
-    "robotSpeed",
-    "driverSkills",
-    "defenseQuality"
-]
