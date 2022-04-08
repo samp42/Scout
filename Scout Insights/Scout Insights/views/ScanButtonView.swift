@@ -26,7 +26,7 @@ struct ScanButtonView: View {
                 }.background(Color("T4K_Yellow"))
                     .cornerRadius(30)
                     .shadow(color: Color("T4K_Yellow"), radius: 2, x: 2, y: 2)
-                    .padding([.all, .trailing], 60)
+                    .padding([.all, .trailing], 50)
             }
         }
     }
