@@ -4,6 +4,7 @@ FRC scouting client app (Scout) and data visualization and analysis app (Scout I
 ## Overview
 ### Scout
 The Scout app can be used on Android tablets to gather match data. Once the data for a match is gathered, it is compressed into a QR code that can be scanned from the Scout Insights app.
+
 ![Screen Shot 2022-04-07 at 11 06 28 PM](https://user-images.githubusercontent.com/26767411/162355810-f790e47c-1ede-440a-aa28-16b11f22a082.png)
 ![Screen Shot 2022-04-07 at 11 06 33 PM](https://user-images.githubusercontent.com/26767411/162355821-34b0604f-9041-40d4-afb5-ec7548f06753.png)
 ![Screen Shot 2022-04-07 at 11 06 38 PM](https://user-images.githubusercontent.com/26767411/162355851-d432bae7-27d2-434a-b896-71837ec5583d.png)
