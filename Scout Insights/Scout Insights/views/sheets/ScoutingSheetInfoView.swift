@@ -15,16 +15,12 @@ struct ScoutingSheetInfoView: View {
             Spacer()
             Text("Match \(String(matchNumber))")
                 .font(.system(size: 60))
-            Divider()
-            Spacer()
             HStack{
                 VStack(alignment: .leading){
                     VStack(alignment: .leading){
                         Text("Match Info")
                             .font(.largeTitle)
                         Text("Match: \(String(scoutingSheet.matchNumber))")
-                            .padding(10)
-                        Text(scoutingSheet.day.rawValue)
                             .padding(10)
                         Text("\(scoutingSheet.alliance.rawValue) Alliance")
                             .padding(10)
@@ -80,6 +76,7 @@ struct ScoutingSheetInfoView: View {
                 .padding(.horizontal)
                 Spacer()
             }.font(.body)
+            Divider().padding(.vertical)
         }
     }
 }
