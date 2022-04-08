@@ -28,7 +28,7 @@ struct ScoutingSheetInfoView: View {
                             .padding(10)
                         Text("\(scoutingSheet.alliance.rawValue) Alliance")
                             .padding(10)
-                        Text("Team \(scoutingSheet.teamNumber)")
+                        Text("Team " + String(scoutingSheet.teamNumber))
                             .padding(10)
                         Text("Auto")
                             .font(.largeTitle)
