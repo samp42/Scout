@@ -16,7 +16,7 @@ class AppState: ObservableObject {
     
     func addScoutingSheet(scoutingSheet: ScoutingSheet) {
         // only add if no sheet exists with same id
-        if(self.scoutingSheets.filter({$0.id == scoutingSheet.id}).isEmpty) {
+        if(self.scoutingSheets.filter({$0.id == scoutingSheet.id || ($0.teamNumber == scoutingSheet.teamNumber && $0.matchNumber == scoutingSheet.matchNumber)}).isEmpty) {
             self.scoutingSheets.append(scoutingSheet)
             
             // add team to list of teams if not already present
