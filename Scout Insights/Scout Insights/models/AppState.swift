@@ -10,7 +10,7 @@ import Foundation
 // hold all sheets and global runtime variables
 class AppState: ObservableObject {
     // all scouting sheets
-    @Published var scoutingSheets: [ScoutingSheet] = [ScoutingSheet.getMock()]
+    @Published var scoutingSheets: [ScoutingSheet] = []
     // all teams that have at least one scouting sheet
     @Published var teams: [Int] = []
     
@@ -20,7 +20,7 @@ class AppState: ObservableObject {
             self.scoutingSheets.append(scoutingSheet)
             
             // add team to list of teams if not already present
-            if(teams.isEmpty || teams.contains(scoutingSheet.teamNumber)) {
+            if(teams.isEmpty || !teams.contains(scoutingSheet.teamNumber)) {
                 teams.append(scoutingSheet.teamNumber)
             }
         }
