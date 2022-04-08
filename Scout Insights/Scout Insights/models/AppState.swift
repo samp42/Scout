@@ -10,7 +10,7 @@ import Foundation
 // hold all sheets and global runtime variables
 class AppState: ObservableObject {
     // all scouting sheets
-    @Published var scoutingSheets: [ScoutingSheet] = []
+    @Published var scoutingSheets: [ScoutingSheet] = [ScoutingSheet.getMock()]
     // all teams that have at least one scouting sheet
     @Published var teams: [Int] = []
     

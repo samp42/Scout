@@ -9,11 +9,12 @@ import SwiftUI
 
 struct SheetsPageView: View {
     @EnvironmentObject var appState: AppState
+    var scanningData: ScanningData
     
     var body: some View {
         NavigationView{
             List {
-                ForEach(appState.teams, id: \.self) {team in
+                ForEach($appState.teams, id: \.self) {$team in
                     NavigationLink(destination: SheetsDetailsView(team: team, sheets: appState.getScoutingSheetsOfTeam(team: team))) {
                         SheetsListCellView(team: team)
                     }
@@ -25,8 +26,9 @@ struct SheetsPageView: View {
 
 struct SheetsPageView_Previews: PreviewProvider {
     static let appState = AppState()
+    static let scanningData = ScanningData()
     
     static var previews: some View {
-        SheetsPageView().environmentObject(appState)
+        SheetsPageView(scanningData: scanningData).environmentObject(appState)
     }
 }

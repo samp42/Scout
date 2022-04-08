@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct ScoutingSheet {
+struct ScoutingSheet: Identifiable {
     // scouting sheet id
     let id: String
     
@@ -202,25 +202,31 @@ struct ScoutingSheet {
     public static func makeJsonMock() -> [String: Any] {
         let dict: [String: Any] = [
             "id": "12345abcdef",
-            "matchNumber": 4,
+            "matchNumber": "4",
             "day": "Day 1",
-            "alliance": 0,
-            "teamNumber": competingTeams[10],
-            "autoCargoUpperHub": 3,
-            "autoCargoLowerHub": 2,
-            "taxi": true,
-            "autoFouls": 2,
-            "teleopCargoUpperHub": 10,
-            "teleopCargoLowerHub": 2,
-            "teleopFouls": 2,
-            "climbTime": 29,
-            "partnerOnBar": false,
+            "alliance": "0",
+            "teamNumber": "3990",
+            "autoCargoUpperHub": "3",
+            "autoCargoLowerHub": "2",
+            "taxi": "true",
+            "autoFouls": "2",
+            "teleopCargoUpperHub": "10",
+            "teleopCargoLowerHub": "2",
+            "teleopFouls": "2",
+            "climbTime": "29",
+            "partnerOnBar": "false",
             "robotSpeed": "Fast",
             "driverSkills": "Bad",
             "defenseQuality": "NA"
         ]
         
         return dict
+    }
+    
+    public static func getMock() -> ScoutingSheet {
+        let scoutingSheet = ScoutingSheet(id: "123456", matchNumber: 2, day: DayEnum.DAY1, alliance: AllianceEnum.BLUE, teamNumber: 3990, taxi: true, autoCargoUpperHub: 3, autoCargoLowerHub: 0, autoFouls: 1, teleopCargoUpperHub: 23, teleopCargoLowerHub: 2, teleopFouls: 2, climbTime: 19, successful: true, partnerOnBar: false, robotSpeed: RobotSpeedEnum.FAST, driverSkills: DriverSkillsEnum.ACCEPTABLE, defenseQuality: DefenseQualityEnum.NA)
+        
+        return scoutingSheet
     }
 }
 

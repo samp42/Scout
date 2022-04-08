@@ -11,7 +11,7 @@ import SwiftUI
 
 class ScanningData: ObservableObject{
     @Published var showScanner: Bool = false
-    @Published var sheet: ScoutingSheet? = nil
+    @Published var sheets: [ScoutingSheet] = []
 }
 
 struct ContentView: View {
@@ -24,29 +24,15 @@ struct ContentView: View {
         ZStack {
             VStack {
                 TabView(selection: $selectedTab) {
-                    SheetsPageView()
+                    SheetsPageView(scanningData: scanningData)
                         .environmentObject(AppState())
                         .tabItem {
                             Image(systemName: "qrcode")
                             Text("Scouting Sheets")
                     }
-//                    PageListViewLayout(tab: 2, detailsView: AnyView(StatisticsDetailsView()), title: "Statistics")
-//                        .environmentObject(AppState())
-//                        .tabItem {
-//                            Image(systemName: "chart.line.uptrend.xyaxis")
-//                            Text("Statistics")
-//                    }
-//                    PageListViewLayout(tab: 3, detailsView: AnyView(RobotDetailsView(team: 3990)), title: "Robots")
-//                        .environmentObject(AppState())
-//                        .tabItem {
-//                            Image(systemName: "gear.circle")
-//                            Text("Robot")
-//                    }
-                    
                 }
             }
             ScanButtonView(scanningData: scanningData)
-//            DayButtonView().environmentObject(DayTeams())
         }.sheet(isPresented: $scanningData.showScanner) {
             CodeScannerView(codeTypes: [.qr], simulatedData: "test", completion: handleScan)
         }
@@ -81,7 +67,7 @@ struct ContentView: View {
                 scoutingSheet = try ScoutingSheet(JSON: dict) ?? nil
                 
                 appSate.addScoutingSheet(scoutingSheet: scoutingSheet!)
-                scanningData.sheet = scoutingSheet
+                scanningData.sheets.append(scoutingSheet!)
             } catch {
                 scanningErrorMessage = "Failed to create ScoutingSheet"
             }
