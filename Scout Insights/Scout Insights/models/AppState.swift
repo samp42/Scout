@@ -27,6 +27,8 @@ class AppState: ObservableObject {
     }
     
     func getScoutingSheetsOfTeam(team: Int) -> [ScoutingSheet] {
-        return self.scoutingSheets.filter({$0.teamNumber == team})
+        return self.scoutingSheets.filter({$0.teamNumber == team}).sorted(by: {
+            return $0.matchNumber < $1.matchNumber
+        })
     }
 }
