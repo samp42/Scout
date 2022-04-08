@@ -17,8 +17,8 @@ struct ScoutingSheetInfoView: View {
                 .font(.system(size: 60))
             Divider()
             Spacer()
-            ZStack{
-                HStack{
+            HStack{
+                VStack(alignment: .leading){
                     VStack(alignment: .leading){
                         Text("Match Info")
                             .font(.largeTitle)
@@ -78,19 +78,19 @@ struct ScoutingSheetInfoView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
+                Spacer()
             }.font(.body)
-            Divider()
-            Spacer()
-            Spacer()
-            Spacer()
         }
     }
 }
 
+@available(iOS 15.0, *)
 struct ScoutingSheetInfoView_Previews: PreviewProvider {
     static let scoutingSheet = ScoutingSheet(id: "123456abcdef", matchNumber: 1, day: DayEnum.DAY1, alliance: AllianceEnum.BLUE, teamNumber: 3990, taxi: true, autoCargoUpperHub: 3, autoCargoLowerHub: 5, autoFouls: 2, teleopCargoUpperHub: 5, teleopCargoLowerHub: 4, teleopFouls: 7, climbTime: 9, successful: true, partnerOnBar: true, robotSpeed: RobotSpeedEnum.FAST, driverSkills: DriverSkillsEnum.GOOD, defenseQuality: DefenseQualityEnum.GOOD)
     
+    @available(iOS 15.0, *)
     static var previews: some View {
         ScoutingSheetInfoView(scoutingSheet: scoutingSheet, matchNumber: 1)
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
