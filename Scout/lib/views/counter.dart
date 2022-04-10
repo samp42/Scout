@@ -11,24 +11,34 @@ class Counter extends StatefulWidget {
 
   @override
   _CounterState createState() => _CounterState();
+
+  void reset() {
+    _CounterState().counter = 0;
+    controller.value = 0;
+  }
 }
 
 class _CounterState extends State<Counter> {
-  int _counter = 0;
+  int counter = 0;
 
   void _decrementCounter() {
     setState(() {
-      if (_counter > 0) {
-        _counter--;
-        widget.controller.value--;
+      if (counter > 0) {
+        counter--;
+        widget.controller.value = counter;
+      }
+
+      if(counter <= 0) {
+        counter = 0;
+        widget.controller.value = counter;
       }
     });
   }
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
-      widget.controller.value++;
+      counter++;
+      widget.controller.value = counter;
     });
   }
 
@@ -44,7 +54,7 @@ class _CounterState extends State<Counter> {
               onPressed: _decrementCounter,
               child: const Icon(Icons.remove, color: Colors.red),
             ),
-            Text("$_counter"),
+            Text("$counter"),
             TextButton(
               onPressed: _incrementCounter,
               child: const Icon(Icons.add, color: Colors.green),

@@ -62,12 +62,12 @@ struct SheetsPageView: View {
             
             do{
                 scoutingSheet = try ScoutingSheet(JSON: dict) ?? nil
-                
-                appState.addScoutingSheet(scoutingSheet: scoutingSheet!)
-                scanningData.sheets.append(scoutingSheet!)
             } catch {
                 self.scanningErrorMessage = "Failed to create ScoutingSheet"
             }
+            
+            appState.addScoutingSheet(scoutingSheet: scoutingSheet!)
+            scanningData.sheets.append(scoutingSheet!)
             
         case .failure(_):
             self.scanningErrorMessage = "Failed to read QR code."

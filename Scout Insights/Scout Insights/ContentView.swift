@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var scanningData = ScanningData()
     @State private var scanningErrorMessage: String? = nil
-    @EnvironmentObject var appSate: AppState
+    @EnvironmentObject var appState: AppState
     @State private var selectedTab = 0
     
     var body: some View {
@@ -19,11 +19,18 @@ struct ContentView: View {
             VStack {
                 TabView(selection: $selectedTab) {
                     SheetsPageView()
-                        .environmentObject(AppState())
+                        .environmentObject(appState)
                         .tabItem {
                             Image(systemName: "qrcode")
                             Text("Scouting Sheets")
-                    }
+                        }
+                    
+                    RobotsPageView()
+                        .environmentObject(appState)
+                        .tabItem {
+                            Image(systemName: "gear")
+                            Text("Robots")
+                        }
                 }
             }
         }

@@ -3,8 +3,10 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 class QrPage extends StatelessWidget {
   final scoutingSheet;
+  final displayMatchNumberError;
+  final displayTeamNumberError;
 
-  const QrPage(this.scoutingSheet, {Key? key}) : super(key: key);
+  const QrPage(this.scoutingSheet, this.displayMatchNumberError, this.displayTeamNumberError, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +17,10 @@ class QrPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          if(displayMatchNumberError)
+            Text("MATCH NUMBER IS MISSING OR INVALID", style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),),
+          if(displayTeamNumberError)
+            Text("TEAM NUMBER IS MISSING OR INVALID", style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),),
           Container(
             alignment: Alignment.center,
             child: QrImage(

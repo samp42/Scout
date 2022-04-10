@@ -8,14 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct ScoutingSheet: Identifiable {
-    // scouting sheet id
-    let id: String
-    
+struct ScoutingSheet {
     // match info
     let matchNumber: Int
-    let day: DayEnum
-    let alliance: AllianceEnum
     let teamNumber: Int
 
     // auto
@@ -31,6 +26,7 @@ struct ScoutingSheet: Identifiable {
 
     // endgame
     let climbTime: Int // number of seconds
+    let barReached: String
     let successful: Bool
     let partnerOnBar: Bool
 
@@ -40,10 +36,7 @@ struct ScoutingSheet: Identifiable {
     let defenseQuality: DefenseQualityEnum
     
     public init(
-        id: String,
         matchNumber: Int,
-        day: DayEnum,
-        alliance: AllianceEnum,
         teamNumber: Int,
         taxi: Bool,
         autoCargoUpperHub: Int,
@@ -53,16 +46,14 @@ struct ScoutingSheet: Identifiable {
         teleopCargoLowerHub: Int,
         teleopFouls: Int,
         climbTime: Int,
+        barReached: String,
         successful: Bool,
         partnerOnBar: Bool,
         robotSpeed: RobotSpeedEnum,
         driverSkills: DriverSkillsEnum,
         defenseQuality: DefenseQualityEnum
     ) {
-        self.id = id
         self.matchNumber = matchNumber
-        self.day = day
-        self.alliance = alliance
         self.teamNumber = teamNumber
         
         self.taxi = taxi
@@ -75,6 +66,7 @@ struct ScoutingSheet: Identifiable {
         self.teleopFouls = teleopFouls
         
         self.climbTime = climbTime
+        self.barReached = barReached
         self.successful = successful
         self.partnerOnBar = partnerOnBar
         
@@ -83,26 +75,12 @@ struct ScoutingSheet: Identifiable {
         self.defenseQuality = defenseQuality
     }
     
-    public init?(JSON: [String: Any]) throws {        
-        guard let id = JSON["id"] as? String else {
-            throw SerializationError.invalid("id", JSON["id"]!)
-        }
+    public init?(JSON: [String: Any]) throws {
         
         guard let matchNumberJSON = JSON["matchNumber"] as? String else {
             throw SerializationError.missing("matchNumber")
         }
         let matchNumber = Int(matchNumberJSON)
-
-        guard let dayJson = JSON["day"] as? String else {
-            throw SerializationError.invalid("day", JSON["day"]!)
-        }
-        let day = DayEnum(rawValue: dayJson)
-                
-        
-        guard let allianceJson = JSON["alliance"] as? String else {
-            throw SerializationError.invalid("alliance", JSON["alliance"]!)
-        }
-        let alliance = AllianceEnum(rawValue: allianceJson)
         
         guard let teamNumberJson = JSON["teamNumber"] as? String else {
             throw SerializationError.missing("teamNumber")
@@ -149,6 +127,10 @@ struct ScoutingSheet: Identifiable {
         }
         let climbTime = Int(climbTimeJson)
         
+        guard let barReached = JSON["barReached"] as? String else {
+            throw SerializationError.missing("barReached")
+        }
+        
         guard let successfulJson = JSON["successful"] as? String else {
             throw SerializationError.missing("successful")
         }
@@ -173,12 +155,8 @@ struct ScoutingSheet: Identifiable {
             throw SerializationError.invalid("defenseQuality", JSON["defenseQuality"]!)
         }
         let defenseQuality = DefenseQualityEnum(rawValue: defenseQualityJson)
-    
-        self.id = id
         
         self.matchNumber = matchNumber!
-        self.day = day!
-        self.alliance = alliance!
         self.teamNumber = teamNumber!
 
         self.autoCargoUpperHub = autoCargoUpperHub!
@@ -201,10 +179,7 @@ struct ScoutingSheet: Identifiable {
     
     public static func makeJsonMock() -> [String: Any] {
         let dict: [String: Any] = [
-            "id": "12345abcdef",
             "matchNumber": "4",
-            "day": "Day 1",
-            "alliance": "0",
             "teamNumber": "3990",
             "autoCargoUpperHub": "3",
             "autoCargoLowerHub": "2",
@@ -214,6 +189,7 @@ struct ScoutingSheet: Identifiable {
             "teleopCargoLowerHub": "2",
             "teleopFouls": "2",
             "climbTime": "29",
+            "barReached": "Mid",
             "partnerOnBar": "false",
             "robotSpeed": "Fast",
             "driverSkills": "Bad",

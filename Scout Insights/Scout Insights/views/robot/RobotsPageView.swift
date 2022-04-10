@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct RobotsPageView: View {
+    @EnvironmentObject var appState: AppState
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            List {
+                ForEach($appState.teams, id: \.self) {$team in
+                    NavigationLink(destination: RobotDetailsView(team: team, sheets: appState.getScoutingSheetsOfTeam(team: team))) {
+                        RobotListCellView(team: team)
+                    }
+                }
+            }.navigationTitle(Text("Robots"))
+        }
     }
 }
 
 struct RobotsPageView_Previews: PreviewProvider {
+    static let appState = AppState()
+    
     static var previews: some View {
-        RobotsPageView()
+        RobotsPageView().environmentObject(appState)
     }
 }

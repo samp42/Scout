@@ -9,13 +9,24 @@ import SwiftUI
 
 struct RobotDetailsView: View {
     let team: Int
+    let sheets: [ScoutingSheet]
+    
     var body: some View {
-        Text("RobotDetailsView")
+        HStack {
+            VStack {
+                Text("Team \(String(team))")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                Text("to be done")
+                Spacer()
+            }
+            Spacer()
+        }
     }
 }
 
 struct RobotDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        RobotDetailsView(team : 1)
+        RobotDetailsView(team : 1, sheets: [ScoutingSheet.getMock()])
     }
 }

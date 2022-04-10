@@ -8,13 +8,8 @@ import 'package:scout/models/DriverSkillsEnum.dart';
 import 'package:scout/models/RobotSpeedEnum.dart';
 
 class ScoutingSheet {
-  // sheet info
-  String id = "";
-
   // match info
-  String day = DayEnum.day1;
   String matchNumber = '0';
-  String alliance = AllianceEnum.blue;
   String teamNumber = CompetingTeams.day1Teams[0].toString();
 
   // auto
@@ -29,6 +24,7 @@ class ScoutingSheet {
   int teleopFouls = 0;
 
   // endgame
+  String barReached = 'None';
   int climbTime = 0;
   bool successful = false;
   bool partnerOnBar = false;
@@ -39,10 +35,7 @@ class ScoutingSheet {
   String defenseQuality = DefenseQualityEnum.na;
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'day': day,
     'matchNumber': matchNumber,
-    'alliance': alliance,
     'teamNumber': teamNumber,
     'autoCargoUpperHub': autoCargoUpperHub,
     'autoCargoLowerHub': autoCargoLowerHub,
@@ -51,6 +44,7 @@ class ScoutingSheet {
     'teleopCargoUpperHub': teleopCargoUpperHub,
     'teleopCargoLowerHub': teleopCargoLowerHub,
     'teleopFouls': teleopFouls,
+    'barReached': barReached,
     'climbTime': climbTime,
     'successful': successful,
     'partnerOnBar': partnerOnBar,

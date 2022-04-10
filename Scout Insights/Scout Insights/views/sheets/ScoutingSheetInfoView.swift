@@ -51,6 +51,8 @@ struct ScoutingSheetInfoView: View {
                             .font(.largeTitle)
                         Text("Climb Time: \(String(scoutingSheet.climbTime))")
                             .padding(10)
+                        Text("Bar Reached: \(scoutingSheet.barReached)")
+                            .padding(10)
                         Text("Successful: \(String(scoutingSheet.successful))")
                             .padding(10)
                         Text("Partner On Bar: \(String(scoutingSheet.partnerOnBar))")

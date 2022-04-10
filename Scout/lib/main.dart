@@ -54,15 +54,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final ScoutingSheet _scoutingSheet = ScoutingSheet();
 
+  String _barReached = 'None';
+
   String _robotSpeed = RobotSpeedEnum.slow;
   String _driverSkills = DriverSkillsEnums.bad;
   String _defense = DefenseQualityEnum.na;
 
   // match info
   // GenericController
-  final dayController = GenericController(DayEnum.day1);
   final matchNumberController = TextEditingController();
-  final allianceController = GenericController(AllianceEnum.blue);
   final teamNumberController = TextEditingController();
 
   // auto
@@ -77,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final teleopFoulsController = GenericController(0);
 
   // endgame
+  final barReachedController = GenericController('None');
   final climbTimeController = GenericController(0);
   final successfulClimbController = GenericController(false);
   final partnerOnBarController = GenericController(false);
@@ -86,17 +87,38 @@ class _MyHomePageState extends State<MyHomePage> {
   final driverSkillsController = GenericController(DriverSkillsEnums.bad);
   final defenseQualityController = GenericController(DefenseQualityEnum.na);
 
+  var displayMatchNumberErrorMessage = true;
+  var displayTeamNumberErrorMessage = true;
+
   void _generateQRCode() {
     setState(() {
-      // id
-      Uuid uuid = const Uuid();
-      _scoutingSheet.id = uuid.v4();
-
       // match info
-      _scoutingSheet.day = dayController.value;
       _scoutingSheet.matchNumber = matchNumberController.text;
-      _scoutingSheet.alliance = allianceController.value;
       _scoutingSheet.teamNumber = teamNumberController.text;
+
+      if(matchNumberController.text != "") {
+        final tryParse = int.tryParse(matchNumberController.text);
+        if(tryParse != null) {
+          displayMatchNumberErrorMessage = false;
+        } else {
+          displayMatchNumberErrorMessage = true;
+        }
+      } else {
+        displayMatchNumberErrorMessage = true;
+      }
+
+      if(teamNumberController.text != "") {
+        final tryParse = int.tryParse(teamNumberController.text);
+        print(teamNumberController.text);
+        print(tryParse);
+        if(tryParse != null) {
+          displayTeamNumberErrorMessage = false;
+        } else {
+          displayTeamNumberErrorMessage = true;
+        }
+      } else {
+        displayTeamNumberErrorMessage = true;
+      }
 
       // auto
       _scoutingSheet.autoCargoUpperHub = autoCargoUpperHubController.value;
@@ -110,6 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _scoutingSheet.teleopFouls = teleopFoulsController.value;
 
       // endgame
+      _scoutingSheet.barReached = barReachedController.value;
       _scoutingSheet.climbTime = climbTimeController.value;
       _scoutingSheet.successful = successfulClimbController.value;
       _scoutingSheet.partnerOnBar = partnerOnBarController.value;
@@ -122,51 +145,62 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   // TODO: reset fields when done
-  // void _resetFields() {
-  //   setState(() {
-  //     // match info
-  //     // dayController.value;
-  //     _scoutingSheet.matchNumber = matchNumberController.text;
-  //     _scoutingSheet.alliance = allianceController.value;
-  //     _scoutingSheet.teamNumber = teamNumberController.text;
-  //
-  //     // auto
-  //
-  //     _scoutingSheet.autoCargoUpperHub = autoCargoUpperHubController.value;
-  //     _scoutingSheet.autoCargoLowerHub = autoCargoLowerHubController.value;
-  //     _scoutingSheet.autoFouls = autoFoulsController.value;
-  //     _scoutingSheet.taxi = taxiController.value;
-  //
-  //     // teleop
-  //     _scoutingSheet.teleopCargoUpperHub = teleopCargoUpperHubController.value;
-  //     _scoutingSheet.teleopCargoLowerHub = teleopCargoLowerHubController.value;
-  //     _scoutingSheet.teleopFouls = teleopFoulsController.value;
-  //
-  //     // endgame
-  //     _scoutingSheet.climbTime = climbTimeController.value;
-  //     _scoutingSheet.successful = successfulClimbController.value;
-  //     _scoutingSheet.partnerOnBar = partnerOnBarController.value;
-  //
-  //     // general
-  //     _scoutingSheet.robotSpeed = robotSpeedController.value;
-  //     _scoutingSheet.driverSkills = driverSkillsController.value;
-  //     _scoutingSheet.defenseQuality = defenseQualityController.value;
-  //   });
-  // }
+  void _resetFields() {
+    setState(() {
+      // match info
+      _scoutingSheet.matchNumber = "";
+      matchNumberController.text = "";
+      _scoutingSheet.teamNumber = "";
+      teamNumberController.text = "";
+
+      displayTeamNumberErrorMessage = true;
+      displayMatchNumberErrorMessage = true;
+
+      // auto
+      _scoutingSheet.autoCargoUpperHub = 0;
+      autoCargoUpperHubController.value = 0;
+      _scoutingSheet.autoCargoLowerHub = 0;
+      autoCargoLowerHubController.value = 0;
+      _scoutingSheet.autoFouls = 0;
+      autoFoulsController.value = 0;
+      _scoutingSheet.taxi = false;
+      taxiController.value = false;
+
+      // teleop
+      _scoutingSheet.teleopCargoUpperHub = 0;
+      teleopCargoUpperHubController.value = 0;
+      _scoutingSheet.teleopCargoLowerHub = 0;
+      teleopCargoLowerHubController.value = 0;
+      _scoutingSheet.teleopFouls = 0;
+      teleopFoulsController.value = 0;
+
+      // endgame
+      _barReached = 'None';
+      barReachedController.value = 'None';
+      _scoutingSheet.climbTime = climbTimeController.value;
+      _scoutingSheet.successful = successfulClimbController.value;
+      _scoutingSheet.partnerOnBar = partnerOnBarController.value;
+
+      // // general
+      // _scoutingSheet.robotSpeed = robotSpeedController.value;
+      // _scoutingSheet.driverSkills = driverSkillsController.value;
+      // _scoutingSheet.defenseQuality = defenseQualityController.value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: const Icon(Icons.undo),
-        //     onPressed: () {
-        //       _resetFields();
-        //     },
-        //   ),
-        // ],
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.undo),
+            onPressed: () {
+              _resetFields();
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -174,8 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               // MATCH INFO
-              MatchInfoWidget(dayController, matchNumberController,
-                  allianceController, teamNumberController),
+              MatchInfoWidget(matchNumberController, teamNumberController),
               // AUTONOMOUS
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
@@ -208,6 +241,38 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               TimerButton("Climb Time", climbTimeController),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text("Bar Reached"),
+                  SizedBox(
+                    width: 200,
+                    child: DropdownButton<String>(
+                      value: _barReached,
+                      icon: const Icon(Icons.arrow_downward),
+                      elevation: 16,
+                      style: const TextStyle(color: Colors.black87),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.black,
+                      ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          _barReached = newValue!;
+                          barReachedController.value = _barReached;
+                        });
+                      },
+                      items: <String>['None', 'Low', 'Mid', 'High', 'Traversal']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
+              ),
               CheckButton("Successful", successfulClimbController),
               CheckButton("Partner on Bar", partnerOnBarController),
               // GENERAL
@@ -327,7 +392,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => QrPage(_scoutingSheet))),
+                            builder: (context) => QrPage(_scoutingSheet, displayMatchNumberErrorMessage, displayTeamNumberErrorMessage))),
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

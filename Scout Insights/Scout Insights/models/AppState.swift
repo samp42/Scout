@@ -15,14 +15,18 @@ class AppState: ObservableObject {
     @Published var teams: [Int] = []
     
     func addScoutingSheet(scoutingSheet: ScoutingSheet) {
-        // only add if no sheet exists with same id
-        if(self.scoutingSheets.filter({$0.id == scoutingSheet.id || ($0.teamNumber == scoutingSheet.teamNumber && $0.matchNumber == scoutingSheet.matchNumber)}).isEmpty) {
+        // add sheet if no other same exists
+        // replace existing sheet if one exists
+        
+        // add team to list of teams if not already present
+        if(teams.isEmpty || !teams.contains(scoutingSheet.teamNumber)) {
+            teams.append(scoutingSheet.teamNumber)
+            return
+        }
+        
+        if(self.scoutingSheets.filter({($0.teamNumber == scoutingSheet.teamNumber && $0.matchNumber == scoutingSheet.matchNumber)}).isEmpty) {
+            self.scoutingSheets = self.scoutingSheets.filter({$0.teamNumber != scoutingSheet.teamNumber && $0.matchNumber != scoutingSheet.matchNumber})
             self.scoutingSheets.append(scoutingSheet)
-            
-            // add team to list of teams if not already present
-            if(teams.isEmpty || !teams.contains(scoutingSheet.teamNumber)) {
-                teams.append(scoutingSheet.teamNumber)
-            }
         }
     }
     
