@@ -1,9 +1,6 @@
-import 'package:scout/models/AllianceEnum.dart';
 import 'package:scout/models/GenericController.dart';
 import 'package:scout/views/qr_page.dart';
-import 'package:uuid/uuid.dart';
 import 'package:flutter/material.dart';
-import 'package:scout/models/DayEnum.dart';
 import 'package:scout/models/DefenseQualityEnum.dart';
 import 'package:scout/models/DriverSkillsEnum.dart';
 import 'package:scout/models/RobotSpeedEnum.dart';

@@ -30,6 +30,8 @@
 		1EDBAE3427F6BBE8006F898F /* Scout_InsightsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE3327F6BBE8006F898F /* Scout_InsightsTests.swift */; };
 		1EDBAE3E27F6BBE8006F898F /* Scout_InsightsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE3D27F6BBE8006F898F /* Scout_InsightsUITests.swift */; };
 		1EDBAE4027F6BBE8006F898F /* Scout_InsightsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDBAE3F27F6BBE8006F898F /* Scout_InsightsUITestsLaunchTests.swift */; };
+		1EF6331B2846F131007A4115 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF6331A2846F131007A4115 /* Realm */; };
+		1EF6331D2846F131007A4115 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1EF6331C2846F131007A4115 /* RealmSwift */; };
 		20372A9C27FE07A000F0DF45 /* RobotDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A9727FE07A000F0DF45 /* RobotDetailsView.swift */; };
 		20372A9D27FE07A000F0DF45 /* RobotListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A9827FE07A000F0DF45 /* RobotListCellView.swift */; };
 		20372A9E27FE07A000F0DF45 /* StatisticsListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A9A27FE07A000F0DF45 /* StatisticsListCellView.swift */; };
@@ -98,6 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF6331D2846F131007A4115 /* RealmSwift in Frameworks */,
+				1EF6331B2846F131007A4115 /* Realm in Frameworks */,
 				1ED7D71427F9681E00DC94A4 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +261,8 @@
 			name = "Scout Insights";
 			packageProductDependencies = (
 				1ED7D71327F9681E00DC94A4 /* CodeScanner */,
+				1EF6331A2846F131007A4115 /* Realm */,
+				1EF6331C2846F131007A4115 /* RealmSwift */,
 			);
 			productName = "Scout Insights";
 			productReference = 1EDBAE1F27F6BBE6006F898F /* Scout Insights.app */;
@@ -332,6 +338,7 @@
 			mainGroup = 1EDBAE1627F6BBE6006F898F;
 			packageReferences = (
 				1ED7D71227F9681E00DC94A4 /* XCRemoteSwiftPackageReference "codescanner" */,
+				1EF633192846F131007A4115 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 1EDBAE2027F6BBE6006F898F /* Products */;
 			projectDirPath = "";
@@ -743,6 +750,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		1EF633192846F131007A4115 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -750,6 +765,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1ED7D71227F9681E00DC94A4 /* XCRemoteSwiftPackageReference "codescanner" */;
 			productName = CodeScanner;
+		};
+		1EF6331A2846F131007A4115 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EF633192846F131007A4115 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		1EF6331C2846F131007A4115 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EF633192846F131007A4115 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

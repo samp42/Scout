@@ -22,8 +22,6 @@ struct ScoutingSheetInfoView: View {
                             .font(.largeTitle)
                         Text("Match: \(String(scoutingSheet.matchNumber))")
                             .padding(10)
-                        Text("\(scoutingSheet.alliance.rawValue) Alliance")
-                            .padding(10)
                         Text("Team " + String(scoutingSheet.teamNumber))
                             .padding(10)
                         Text("Auto")
@@ -85,7 +83,7 @@ struct ScoutingSheetInfoView: View {
 
 @available(iOS 15.0, *)
 struct ScoutingSheetInfoView_Previews: PreviewProvider {
-    static let scoutingSheet = ScoutingSheet(id: "123456abcdef", matchNumber: 1, day: DayEnum.DAY1, alliance: AllianceEnum.BLUE, teamNumber: 3990, taxi: true, autoCargoUpperHub: 3, autoCargoLowerHub: 5, autoFouls: 2, teleopCargoUpperHub: 5, teleopCargoLowerHub: 4, teleopFouls: 7, climbTime: 9, successful: true, partnerOnBar: true, robotSpeed: RobotSpeedEnum.FAST, driverSkills: DriverSkillsEnum.GOOD, defenseQuality: DefenseQualityEnum.GOOD)
+    static let scoutingSheet = ScoutingSheet(matchNumber: 1, teamNumber: 3990, taxi: true, autoCargoUpperHub: 3, autoCargoLowerHub: 5, autoFouls: 2, teleopCargoUpperHub: 5, teleopCargoLowerHub: 4, teleopFouls: 7, climbTime: 9, barReached: "traversal", successful: true, partnerOnBar: true, robotSpeed: RobotSpeedEnum.FAST, driverSkills: DriverSkillsEnum.GOOD, defenseQuality: DefenseQualityEnum.GOOD)
     
     @available(iOS 15.0, *)
     static var previews: some View {
